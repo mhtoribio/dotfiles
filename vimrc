@@ -11,7 +11,14 @@ endif
 call plug#begin()
 " The default plugin directory is ~/.vim/plugged for linux
 Plug 'vimwiki/vimwiki'
+Plug 'arcticicestudio/nord-vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
+colorscheme nord
+
+" FZF configuration
+map <C-p> :Files<CR>
 
 " vimwiki configuration
 let g:vimwiki_list = [{'path': '$HOME/Dropbox/vimwiki'}] " set path to a directory inside Dropbox
