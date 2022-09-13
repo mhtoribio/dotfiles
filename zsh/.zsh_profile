@@ -4,6 +4,14 @@ VIM='vim'
 
 export GIT_EDITOR=$VIM
 
+alias cdd "cd $HOME/.dotfiles"
+alias cdz "cd $HOME/.dotfiles/zsh"
+alias cdv "cd $HOME/.dotfiles/vim"
+alias cdl "cd $HOME/.local"
+alias cdp "cd $HOME/programming"
+alias cdpa "cd $HOME/programming/aau"
+alias cdoa "cd $HOME/OneDriveAAU"
+
 # History in cache directory
 HISTSIZE=10000000
 SAVEHIST=10000000
