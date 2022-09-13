@@ -1,0 +1,16 @@
+XDG_PROFILE_HOME=$HOME/.config
+XDG_CACHE_HOME=$HOME/.cache
+VIM='vim'
+
+export GIT_EDITOR=$VIM
+
+# History in cache directory
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE=$XDG_CACHE_HOME/zsh/history
+
+# FZF find dirs
+bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+
+# Simple calculator
+bindkey -s '^x' 'bc -lq\n'

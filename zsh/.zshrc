@@ -100,10 +100,4 @@ export EDITOR='vim'
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# FZF find dirs
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
-
-# Simple calculator
-bindkey -s '^a' 'bc -lq\n'
-
-source ~/.zsh_profile
+source $HOME/.dotfiles/zsh/.zsh_profile
