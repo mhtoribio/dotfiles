@@ -7,10 +7,16 @@ export GIT_EDITOR=$VIM
 alias cdd="cd $HOME/.dotfiles"
 alias cdz="cd $HOME/.dotfiles/zsh"
 alias cdv="cd $HOME/.dotfiles/vim"
+alias cdt="cd $HOME/.dotfiles/tmux"
 alias cdl="cd $HOME/.local"
+alias cdlb="cd $HOME/.local/bin"
 alias cdp="cd $HOME/programming"
 alias cdpa="cd $HOME/programming/aau"
 alias cdoa="cd $HOME/OneDriveAAU"
+alias cdoe="cd $HOME/OneDriveAAU/ESD1"
+alias cdol="cd $HOME/OneDriveAAU/ESD1/local"
+alias cdog="cd $HOME/OneDriveAAU/ESD1/Gruppe112"
+alias cdop="cd $HOME/OneDriveAAU/ESD1/Gruppe112/project"
 
 # History in cache directory
 HISTSIZE=10000000
