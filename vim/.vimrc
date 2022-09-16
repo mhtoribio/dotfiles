@@ -40,6 +40,10 @@ set background=dark
 " FZF configuration
 map <C-p> :Files<CR>
 
+" Relative line numbers
+set relativenumber
+set nu
+
 " vimwiki configuration
 let g:vimwiki_list = [{'path': '$HOME/Dropbox/vimwiki'}] " set path to a directory inside Dropbox
 let g:vimwiki_ext = '.md' " set extension to .md
