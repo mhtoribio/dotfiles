@@ -32,7 +32,7 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 call plug#end()
-" Set colorscheme (requires true-color to work proporly)
+" Set colorscheme (requires true-color to work properly)
 "colorscheme nord
 colorscheme gruvbox
 set background=dark
@@ -43,6 +43,18 @@ map <C-p> :Files<CR>
 " Relative line numbers
 set relativenumber
 set nu
+
+" Tab width
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" Misc options
+set noerrorbells
+set nowrap
+set nohlsearch
+set incsearch
+set scrolloff=8
 
 " vimwiki configuration
 let g:vimwiki_list = [{'path': '$HOME/Dropbox/vimwiki'}] " set path to a directory inside Dropbox
