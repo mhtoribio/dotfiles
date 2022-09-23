@@ -17,6 +17,7 @@ alias cdoe="cd $HOME/OneDriveAAU/ESD1"
 alias cdol="cd $HOME/OneDriveAAU/ESD1/local"
 alias cdog="cd $HOME/OneDriveAAU/ESD1/Gruppe112"
 alias cdop="cd $HOME/OneDriveAAU/ESD1/Gruppe112/project"
+alias cdor="cd $HOME/OneDriveAAU/AAUR"
 
 # History in cache directory
 HISTSIZE=10000000
