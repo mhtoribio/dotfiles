@@ -20,6 +20,8 @@ alias cdog="cd $HOME/OneDriveAAU/ESD1/Gruppe112"
 alias cdop="cd $HOME/OneDriveAAU/ESD1/Gruppe112/project"
 alias cdor="cd $HOME/OneDriveAAU/AAUR"
 
+alias ksa="killall ssh-agent"
+
 # History in cache directory
 HISTSIZE=10000000
 SAVEHIST=10000000
