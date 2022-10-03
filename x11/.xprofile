@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Run the remaps script to remap caps lock
+$HOME/.local/hmbin/remaps
