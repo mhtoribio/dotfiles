@@ -27,7 +27,7 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=$XDG_CACHE_HOME/zsh/history
 
-export PATH=$PATH:$HOME/.local/bin:$HOME/.local/hmbin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.local/hmbin:/usr/local/avr/bin
 
 # FZF find dirs
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
