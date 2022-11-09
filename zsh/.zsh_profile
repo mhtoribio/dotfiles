@@ -22,6 +22,7 @@ alias cdor="cd $HOME/OneDriveAAU/AAUR"
 alias cdp1="cd $HOME/p1"
 
 #alias tcmd="powershell.exe /mnt/c/Program\ Files/totalcmd/TOTALCMD64.EXE $(wslpath -w \"$PWD\")"
+alias explr="explorer.exe ."
 alias ksa="killall ssh-agent"
 
 # History in cache directory
