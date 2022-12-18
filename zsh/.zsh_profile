@@ -7,6 +7,8 @@ alias vim=$VIM
 export GIT_EDITOR=$VIM
 export EDITOR=$VIM
 
+alias cdcf="cd $XDG_CONFIG_HOME"
+alias cdnv="cd $XDG_CONFIG_HOME/nvim"
 alias cdd="cd $HOME/.dotfiles"
 alias cdz="cd $HOME/.dotfiles/zsh"
 alias cdv="cd $HOME/.dotfiles/vim"
