@@ -1,9 +1,11 @@
 XDG_PROFILE_HOME=$HOME/.config
 XDG_CONFIG_HOME=$HOME/.config
 XDG_CACHE_HOME=$HOME/.cache
-VIM='vim'
+VIM='nvim'
 
+alias vim=$VIM
 export GIT_EDITOR=$VIM
+export EDITOR=$VIM
 
 alias cdd="cd $HOME/.dotfiles"
 alias cdz="cd $HOME/.dotfiles/zsh"
@@ -22,7 +24,6 @@ alias cdop="cd $HOME/OneDriveAAU/ESD1/Gruppe112/project"
 alias cdor="cd $HOME/OneDriveAAU/AAUR"
 alias cdp1="cd $HOME/p1"
 
-#alias tcmd="powershell.exe /mnt/c/Program\ Files/totalcmd/TOTALCMD64.EXE $(wslpath -w \"$PWD\")"
 alias explr="explorer.exe ."
 alias ksa="killall ssh-agent"
 

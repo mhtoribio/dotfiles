@@ -1,4 +1,4 @@
-let mapleader = ","
+let mapleader = " "
 
 " install vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -38,7 +38,7 @@ colorscheme gruvbox
 set background=dark
 
 " FZF configuration
-map <C-p> :Files<CR>
+map <leader>pf :Files<CR>
 
 " Relative line numbers
 set relativenumber
