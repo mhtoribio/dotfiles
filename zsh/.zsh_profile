@@ -28,6 +28,7 @@ alias cdp1="cd $HOME/p1"
 
 alias explr="explorer.exe ."
 alias ksa="killall ssh-agent"
+alias gfp="source gsa && gp && ksa"
 
 # History in cache directory
 HISTSIZE=10000000
