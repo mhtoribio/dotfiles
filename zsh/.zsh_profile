@@ -27,7 +27,7 @@ alias cdor="cd $HOME/OneDriveAAU/AAUR"
 alias cdp1="cd $HOME/p1"
 
 alias explr="explorer.exe ."
-alias ksa="killall ssh-agent"
+alias ksa="killall ssh-agent && echo 'killall ssh-agent'"
 alias gfp="source gsa && gp && ksa"
 
 # History in cache directory
