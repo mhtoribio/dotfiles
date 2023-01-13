@@ -16,7 +16,6 @@ git clone git@github.com:mhtoribio/dotfiles.git $HOME/.dotfiles
 # Setup symlinks
 ln -s $HOME/.dotfiles/tmux $HOME/.config/tmux
 ln -s $HOME/.dotfiles/zsh $HOME/.config/zsh
-ln -s $HOME/.config/zsh/.zprofile $HOME/.zprofile
 ln -s $HOME/.dotfiles/i3 $HOME/.config/i3
 
 # Neovim
