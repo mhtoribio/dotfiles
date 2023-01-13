@@ -9,7 +9,7 @@ if ! [ -f $GH_SSH_KEY ]; then
 fi
 
 eval "$(ssh-agent -s)"
-ssh-add GH_SSH_KEY
+ssh-add $GH_SSH_KEY
 
 git clone git@github.com:mhtoribio/dotfiles.git $HOME/.dotfiles
 
