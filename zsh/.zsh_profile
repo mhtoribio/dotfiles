@@ -1,12 +1,3 @@
-XDG_PROFILE_HOME=$HOME/.config
-XDG_CONFIG_HOME=$HOME/.config
-XDG_CACHE_HOME=$HOME/.cache
-VIM='nvim'
-
-alias vim=$VIM
-export GIT_EDITOR=$VIM
-export EDITOR=$VIM
-
 alias cdcf="cd $XDG_CONFIG_HOME"
 alias cdnv="cd $XDG_CONFIG_HOME/nvim"
 alias cdd="cd $HOME/.dotfiles"
@@ -34,8 +25,6 @@ alias gfp="source gsa && gp && ksa"
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=$XDG_CACHE_HOME/zsh/history
-
-export PATH=$PATH:$HOME/.local/bin:$HOME/.local/hmbin:/usr/local/avr/bin:$HOME/.cargo/bin
 
 # FZF find dirs
 bindkey -s '^n' 'cd "$(dirname "$(fzf)")"\n'
