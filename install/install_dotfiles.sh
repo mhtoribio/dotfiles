@@ -13,13 +13,30 @@ ssh-add $GH_SSH_KEY
 
 git clone git@github.com:mhtoribio/dotfiles.git $HOME/.dotfiles
 
+if [[ -d "$HOME/.config" ]]; then
+    MOVE_CONFIG=true
+fi
+
+if [[ $MOVE_CONFIG ]]; then
+    echo "Moving config"
+    mv ~/.config ~/_temp_config
+fi
+
+mkdir -p ~/.config
+
 # Setup symlinks
-ln -s $HOME/.dotfiles/tmux $HOME/.config/tmux
-ln -s $HOME/.dotfiles/zsh $HOME/.config/zsh
-ln -s $HOME/.dotfiles/i3 $HOME/.config/i3
+ln -sv $HOME/.dotfiles/tmux $HOME/.config/tmux
+ln -sv $HOME/.dotfiles/zsh $HOME/.config/zsh
+ln -sv $HOME/.config/zsh/.zshenv $HOME/.zshenv
+ln -sv $HOME/.dotfiles/i3 $HOME/.config/i3
 
 # Neovim
 git clone git@github.com:mhtoribio/nvim.conf $HOME/.config/nvim
+
+if [[ $MOVE_CONFIG ]]; then
+    cp -r ~/_temp_config/* ~/.config/
+    rm -rf ~/_temp_config
+fi
 
 # Cleanup
 killall ssh-agent
