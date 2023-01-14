@@ -33,6 +33,10 @@ ln -sv $HOME/.dotfiles/i3 $HOME/.config/i3
 # Neovim
 git clone git@github.com:mhtoribio/nvim.conf $HOME/.config/nvim
 
+# Scripts
+git clone git@github.com:mhtoribio/hmbin $HOME/.local/hmbin
+
+# Cleanup temp_config
 if [[ $MOVE_CONFIG ]]; then
     cp -r ~/_temp_config/* ~/.config/
     rm -rf ~/_temp_config
