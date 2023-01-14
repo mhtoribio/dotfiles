@@ -17,6 +17,8 @@ alias cdop="cd $HOME/OneDriveAAU/ESD1/Gruppe112/project"
 alias cdor="cd $HOME/OneDriveAAU/AAUR"
 alias cdp1="cd $HOME/p1"
 
+alias vw="vim -c VimwikiIndex"
+
 alias explr="explorer.exe ."
 alias ksa="killall ssh-agent && echo 'killall ssh-agent'"
 alias gfp="source gsa && gp && ksa"
