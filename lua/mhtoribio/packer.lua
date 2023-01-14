@@ -47,4 +47,23 @@ return require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'},
         }
     }
+
+    -- Notes
+    use {
+        'vimwiki/vimwiki',
+        config = function()
+            vim.g.vimwiki_list = {
+                {
+                    path = '$HOME/Dropbox/vimwiki',
+                    syntax = 'markdown',
+                    ext = '.md',
+                }
+            }
+        end
+    }
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+    use('jbyuki/nabla.nvim')
 end)
