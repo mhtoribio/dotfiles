@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
                     ext = '.md',
                 }
             }
+            vim.g.vimwiki_global_ext = 0
         end
     }
     use({
