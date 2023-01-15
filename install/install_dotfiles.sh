@@ -29,6 +29,7 @@ ln -sv $HOME/.dotfiles/tmux $HOME/.config/tmux
 ln -sv $HOME/.dotfiles/zsh $HOME/.config/zsh
 ln -sv $HOME/.config/zsh/.zshenv $HOME/.zshenv
 ln -sv $HOME/.dotfiles/i3 $HOME/.config/i3
+ln -sv $HOME/.dotfiles/alacritty/ $HOME/.config/alacritty
 
 # Neovim
 git clone git@github.com:mhtoribio/nvim.conf $HOME/.config/nvim
