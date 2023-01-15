@@ -67,4 +67,5 @@ return require('packer').startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
     use('jbyuki/nabla.nvim')
+    use('lervag/vimtex')
 end)
