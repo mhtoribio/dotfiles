@@ -1,4 +1,3 @@
-
 # (man zshoptions)
 setopt nomatch menucomplete
 
@@ -29,5 +28,3 @@ zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-keybindings"
 zsh_add_file "zsh-wsl"
 zsh_add_file "zsh-prompt"
-
-# Plugins
