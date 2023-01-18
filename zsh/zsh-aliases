@@ -1,0 +1,20 @@
+# cd aliases
+alias cdcf="cd $XDG_CONFIG_HOME"
+alias cdnv="cd $XDG_CONFIG_HOME/nvim"
+alias cdd="cd $HOME/.dotfiles"
+alias cdz="cd $HOME/.dotfiles/zsh"
+alias cdv="cd $HOME/.dotfiles/vim"
+alias cdt="cd $HOME/.dotfiles/tmux"
+alias cdi="cd $HOME/.dotfiles/i3"
+alias cdl="cd $HOME/.local"
+alias cdlb="cd $HOME/.local/bin"
+alias cdp="cd $HOME/programming"
+alias cdpa="cd $HOME/programming/aau"
+alias cdp1="cd $HOME/p1"
+
+# Vimwiki
+alias vw="vim -c VimwikiIndex"
+
+# SSH-agent
+alias ksa="killall ssh-agent && echo 'killall ssh-agent'"
+alias gfp="source gsa && git push && ksa"

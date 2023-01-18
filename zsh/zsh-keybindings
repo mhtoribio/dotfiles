@@ -1,0 +1,8 @@
+# FZF find dirs
+bindkey -s '^n' 'cd "$(dirname "$(fzf)")"\n'
+
+# tmux-sessionizer
+bindkey -s '^f' '$HOME/.local/hmbin/tmux-sessionizer\n'
+
+# Simple calculator
+bindkey -s '^x' 'bc -lq\n'
