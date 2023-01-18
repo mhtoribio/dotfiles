@@ -30,8 +30,6 @@ fi
 # ZSH
 sudo dnf install -y zsh
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Install workflow tools
 sudo dnf install -y bc fzf
 
