@@ -2,8 +2,10 @@
 alias cp="cp -i"
 alias mv="mv -i"
 
-# ls colors
+# ls
 alias ls="ls --color=tty"
+alias lsa="ls -la"
+alias ll="ls -l"
 
 # git shortcuts
 alias ga='git add'
