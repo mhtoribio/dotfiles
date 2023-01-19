@@ -42,6 +42,7 @@ alias cdp1="cd $HOME/p1"
 
 # Vimwiki
 alias vw="vim -c VimwikiIndex"
+alias vwt="tmux-sessionizer ~/Dropbox/vimwiki" # TODO use vw in vwt automatically
 
 # SSH-agent
 alias ksa="killall ssh-agent && echo 'killall ssh-agent'"
