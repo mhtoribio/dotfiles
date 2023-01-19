@@ -1,0 +1,48 @@
+# Confirm before overwriting something
+alias cp="cp -i"
+alias mv="mv -i"
+
+# ls
+alias ls="ls --color=tty"
+alias lsa="ls -la"
+alias ll="ls -l"
+
+# git shortcuts
+alias ga='git add'
+alias gaa='git add --all'
+alias gb='git branch'
+alias gc='git commit -v'
+alias gco='git checkout'
+alias gd='git diff'
+alias gf='git fetch'
+alias gl='git pull'
+alias glg='git log --stat'
+alias gm='git merge'
+alias gp='git push'
+alias gr='git remote'
+alias gra='git remote add'
+alias grb='git rebase'
+alias grs='git restore'
+alias gsh='git show'
+alias gst='git status'
+
+# cd aliases
+alias cdcf="cd $XDG_CONFIG_HOME"
+alias cdnv="cd $XDG_CONFIG_HOME/nvim"
+alias cdd="cd $HOME/.dotfiles"
+alias cdz="cd $HOME/.dotfiles/zsh"
+alias cdv="cd $HOME/.dotfiles/vim"
+alias cdt="cd $HOME/.dotfiles/tmux"
+alias cdi="cd $HOME/.dotfiles/i3"
+alias cdl="cd $HOME/.local"
+alias cdlb="cd $HOME/.local/bin"
+alias cdp="cd $HOME/programming"
+alias cdpa="cd $HOME/programming/aau"
+alias cdp1="cd $HOME/p1"
+
+# Vimwiki
+alias vw="vim -c VimwikiIndex"
+
+# SSH-agent
+alias ksa="killall ssh-agent && echo 'killall ssh-agent'"
+alias gfp="source gsa && git push && ksa"

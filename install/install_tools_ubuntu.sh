@@ -31,8 +31,6 @@ fi
 # ZSH
 sudo apt-get install -y zsh
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Install workflow tools
 sudo apt-get install -y bc fzf
 

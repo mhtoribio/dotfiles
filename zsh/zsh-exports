@@ -1,0 +1,13 @@
+# History in cache directory
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=$XDG_CACHE_HOME/zsh/history
+
+# Editors
+VIM='nvim'
+alias vim=$VIM
+export GIT_EDITOR=$VIM
+export EDITOR=$VIM
+
+# Path
+export PATH=$PATH:$HOME/.local/bin:$HOME/.local/hmbin:/usr/local/avr/bin:$HOME/.cargo/bin
