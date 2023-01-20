@@ -68,4 +68,12 @@ return require('packer').startup(function(use)
     })
     use('jbyuki/nabla.nvim')
     use('lervag/vimtex')
+
+    -- Org Mode
+    use{
+        'nvim-orgmode/orgmode',
+        config = function()
+            require('orgmode').setup{}
+        end
+    }
 end)
