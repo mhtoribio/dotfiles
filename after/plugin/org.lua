@@ -17,7 +17,31 @@ require('nvim-treesitter.configs').setup {
 require('orgmode').setup({
     org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
     org_default_notes_file = '~/Dropbox/org/refile.org',
+    -- Remaps
+    mappings = {
+        org = {
+            org_toggle_checkbox = "cic"
+        }
+    }
 })
+
+-- Custom capture templates
+org_capture_templates = {
+    t = {
+        description = 'Task',
+        template = '* TODO %?\n  %u'
+    },
+    h = {
+        description = "Habit",
+        template = "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n",
+        target = "~/Dropbox/org/refile.org"
+    },
+    s = {
+        description = "Shopping",
+        template = "+ [ ] %?",
+        target = "~/Dropbox/org/shopping.org"
+    }
+}
 
 -- Conceal links properly
 vim.opt.conceallevel = 2
