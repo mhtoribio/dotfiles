@@ -44,6 +44,9 @@ alias cdp1="cd $HOME/p1"
 alias vw="vim -c VimwikiIndex"
 alias vwt="tmux-sessionizer ~/Dropbox/vimwiki" # TODO use vw in vwt automatically
 
+# Spawn TMUX session in Org Mode directory
+alias org="tmux-sessionizer ~/Dropbox/org"
+
 # SSH-agent
 alias ksa="killall ssh-agent && echo 'killall ssh-agent'"
 alias gfp="source gsa && git push && ksa"
