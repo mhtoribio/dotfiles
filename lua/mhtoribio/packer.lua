@@ -76,4 +76,7 @@ return require('packer').startup(function(use)
             require('orgmode').setup{}
         end
     }
+
+    -- Much Funniness
+    use('eandrju/cellular-automaton.nvim')
 end)
