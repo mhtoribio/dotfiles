@@ -1,9 +1,9 @@
 # cd aliases
 alias cdoa="cd $HOME/OneDriveAAU"
-alias cdoe="cd $HOME/OneDriveAAU/ESD1"
-alias cdol="cd $HOME/OneDriveAAU/ESD1/local"
-alias cdog="cd $HOME/OneDriveAAU/ESD1/Gruppe112"
-alias cdop="cd $HOME/OneDriveAAU/ESD1/Gruppe112/project"
+alias cdoe="cd $HOME/OneDriveAAU/ESD2"
+alias cdol="cd $HOME/OneDriveAAU/ESD2/local"
+alias cdog="cd $HOME/OneDriveAAU/ESD2/Group212"
+alias cdop="cd $HOME/OneDriveAAU/ESD2/Group212/project"
 alias cdor="cd $HOME/OneDriveAAU/AAUR"
 
 # Open explorer in current directory
