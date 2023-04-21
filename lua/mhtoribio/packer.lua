@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
     })
     use('jbyuki/nabla.nvim')
     use('lervag/vimtex')
+    use('dhruvasagar/vim-table-mode')
 
     -- Org Mode
     use{
