@@ -26,6 +26,9 @@ alias grs='git restore'
 alias gsh='git show'
 alias gst='git status'
 
+# xclip
+alias cs="xclip -sel clip"
+
 # cd aliases
 alias cdcf="cd $XDG_CONFIG_HOME"
 alias cdnv="cd $XDG_CONFIG_HOME/nvim"
