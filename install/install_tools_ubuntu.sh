@@ -32,7 +32,7 @@ fi
 sudo apt-get install -y zsh
 
 # Install workflow tools
-sudo apt-get install -y bc fzf
+sudo apt-get install -y bc fzf xclip
 
 # TMUX
 sudo apt-get install -y tmux
