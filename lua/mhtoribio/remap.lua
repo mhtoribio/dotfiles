@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader><CR>", "<cmd>.!sh<CR>")
 
 -- Turn folding off for markdown (show ``` etc)
-vim.keymap.set("n", "<leader>md", "<cmd>set cole=0")
+vim.keymap.set("n", "<leader>md", "<cmd>set cole=0<CR>")
 
 -- Compile rmarkdown (.rmd) files
 -- should maybe be made into a plugin later?
