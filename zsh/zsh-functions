@@ -30,3 +30,9 @@ function zsh_add_completion() {
 	completion_file="$(basename "${completion_file_path}")"
 	if [ "$2" = true ] && compinit "${completion_file:1}"
 }
+
+# Install packages from file containing list of packages
+# Lines starting with # are ignored
+aptif () {
+    sudo apt install -y $(grep -o '^[^#]*' "$1")
+}
