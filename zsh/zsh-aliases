@@ -29,6 +29,9 @@ alias gst='git status'
 # xclip
 alias cs="xclip -sel clip"
 
+# setxkbmap
+alias kmap="setxkbmap"
+
 # cd aliases
 alias cdcf="cd $XDG_CONFIG_HOME"
 alias cdnv="cd $XDG_CONFIG_HOME/nvim"
