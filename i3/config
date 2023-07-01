@@ -67,6 +67,10 @@ bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '
 # program bindings
 bindsym $mod+w exec --no-startup-id "brave-browser"
 
+# script shortcuts
+bindsym $mod+z exec "toggle-keymap"
+bindsym $mod+q exec "remaps"
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
