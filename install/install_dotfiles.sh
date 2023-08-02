@@ -30,7 +30,8 @@ ln -sv $HOME/.dotfiles/zsh $HOME/.config/zsh
 ln -sv $HOME/.config/zsh/.zshenv $HOME/.zshenv
 ln -sv $HOME/.dotfiles/i3 $HOME/.config/i3
 ln -sv $HOME/.dotfiles/i3status $HOME/.config/i3status
-ln -sv $HOME/.dotfiles/alacritty/ $HOME/.config/alacritty
+ln -sv $HOME/.dotfiles/alacritty $HOME/.config/alacritty
+ln -sv $HOME/.dotfiles/zathura $HOME/.config/zathura
 ln -sv $HOME/.dotfiles/x11/.xprofile ~/.xsessionrc
 ln -sv $HOME/.dotfiles/x11/.xprofile ~/.xprofile
 
