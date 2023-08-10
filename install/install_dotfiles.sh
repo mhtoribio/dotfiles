@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-GH_SSH_KEY=$HOME/.ssh/github 
+GH_SSH_KEY=$HOME/.ssh/id_ed25519 
 
 # Check for github ssh key
 if ! [ -f $GH_SSH_KEY ]; then
-    echo "Github ssh key not found. Place under $HOME/.ssh/github"
+    echo "Github ssh key not found. Place under $HOME/.ssh/id_ed25519"
     exit 1
 fi
 
