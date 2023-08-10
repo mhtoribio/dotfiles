@@ -15,7 +15,7 @@ sudo apt-get install -y \
 if ! [ -d $HOME/build/neovim ]; then
     git clone https://github.com/neovim/neovim ~/build/neovim
     cd ~/build/neovim/
-    make
+    make -j `nproc`
     sudo make install
 fi
 
