@@ -61,3 +61,6 @@ alias org="tmux-sessionizer ~/Dropbox/org"
 # SSH-agent
 alias ksa="killall ssh-agent && echo 'killall ssh-agent'"
 alias gfp="source gsa && git push && ksa"
+
+# CTF specific
+alias pwninit="pwninit --template-path ~/.config/pwninit-template.py"
