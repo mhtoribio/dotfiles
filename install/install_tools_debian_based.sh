@@ -2,8 +2,9 @@
 
 mkdir -p ~/build
 
-# May not work with fedora?
-sudo dnf install -y \
+sudo apt update
+
+sudo apt-get install -y \
     make cmake git \
     gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip \
     make build-essential libssl-dev zlib1g-dev libbz2-dev \
@@ -14,7 +15,7 @@ sudo dnf install -y \
 if ! [ -d $HOME/build/neovim ]; then
     git clone https://github.com/neovim/neovim ~/build/neovim
     cd ~/build/neovim/
-    make
+    make -j `nproc`
     sudo make install
 fi
 
@@ -28,12 +29,15 @@ if ! [ -x "$(command -v cargo)" ]; then
 fi
 
 # ZSH
-sudo dnf install -y zsh
+sudo apt-get install -y zsh
 
 # Install workflow tools
-sudo dnf install -y bc fzf
+sudo apt-get install -y bc fzf xclip
+
+# Install stuff for remaps
+sudo apt-get install -y xdotool xcape
 
 # TMUX
-sudo dnf install -y tmux
+sudo apt-get install -y tmux
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
