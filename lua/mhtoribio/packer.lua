@@ -48,6 +48,8 @@ return require('packer').startup(function(use)
         }
     }
 
+    use('junegunn/vim-easy-align')
+
     -- Notes
     use({
         "iamcco/markdown-preview.nvim",
