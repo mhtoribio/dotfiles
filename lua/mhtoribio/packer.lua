@@ -49,26 +49,12 @@ return require('packer').startup(function(use)
     }
 
     -- Notes
-    use {
-        'vimwiki/vimwiki',
-        config = function()
-            vim.g.vimwiki_list = {
-                {
-                    path = '$HOME/Dropbox/vimwiki',
-                    syntax = 'markdown',
-                    ext = '.md',
-                }
-            }
-            vim.g.vimwiki_global_ext = 0
-        end
-    }
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
     use('jbyuki/nabla.nvim')
     use('lervag/vimtex')
-    use('dhruvasagar/vim-table-mode')
 
     -- Org Mode
     use{
@@ -77,7 +63,4 @@ return require('packer').startup(function(use)
             require('orgmode').setup{}
         end
     }
-
-    -- Much Funniness
-    use('eandrju/cellular-automaton.nvim')
 end)
