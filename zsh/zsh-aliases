@@ -20,11 +20,14 @@ alias glg='git log --stat'
 alias gm='git merge'
 alias gp='git push'
 alias gr='git remote'
-alias gra='git remote add'
 alias grb='git rebase'
 alias grs='git restore'
 alias gsh='git show'
 alias gst='git status'
+
+# use these all the time
+alias t="tmux"
+alias v="vim"
 
 # xclip
 alias cs="xclip -sel clip"
@@ -33,27 +36,16 @@ alias cs="xclip -sel clip"
 alias kmap="setxkbmap"
 
 # python interactive shell
-alias ipy="ipython"
 alias py="python"
+alias py2="python2"
 alias py3="python3"
+alias ipy="ipython"
+alias ipy2="ipython2"
+alias ipy3="ipython3"
 
 # cd aliases
-alias cdcf="cd $XDG_CONFIG_HOME"
-alias cdnv="cd $XDG_CONFIG_HOME/nvim"
-alias cdd="cd $HOME/.dotfiles"
-alias cdz="cd $HOME/.dotfiles/zsh"
-alias cdv="cd $HOME/.dotfiles/vim"
-alias cdt="cd $HOME/.dotfiles/tmux"
-alias cdi="cd $HOME/.dotfiles/i3"
-alias cdl="cd $HOME/.local"
-alias cdlb="cd $HOME/.local/bin"
 alias cdp="cd $HOME/programming"
 alias cdpa="cd $HOME/programming/aau"
-alias cdp1="cd $HOME/p1"
-
-# Vimwiki
-alias vw="vim -c VimwikiIndex"
-alias vwt="tmux-sessionizer ~/Dropbox/vimwiki" # TODO use vw in vwt automatically
 
 # Spawn TMUX session in Org Mode directory
 alias org="tmux-sessionizer ~/Dropbox/org"
