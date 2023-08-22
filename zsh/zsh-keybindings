@@ -7,8 +7,5 @@ bindkey -s '^n' '^e^ucd "$(dirname "$(fzf)")"\n'
 # tmux-sessionizer
 bindkey -s '^f' '^e^u$HOME/.local/hmbin/tmux-sessionizer\n'
 
-# Simple calculator
-bindkey -s '^x' '^e^ubc -lq\n'
-
 # Navigate with lf
 bindkey -s '^j' '^e^ulfcd'
