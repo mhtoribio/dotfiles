@@ -8,4 +8,5 @@ bindkey -s '^n' '^e^ucd "$(dirname "$(fzf)")"\n'
 bindkey -s '^f' '^e^u$HOME/.local/hmbin/tmux-sessionizer\n'
 
 # Navigate with lf
-bindkey -s '^j' '^e^ulfcd'
+# do not bind '^j' as it will overwrite the other keybindings for some reason
+bindkey -s '^m' '^e^ulfcd'
