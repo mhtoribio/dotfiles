@@ -25,4 +25,4 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 -- Turn off automatic commenting on newline
-vim.opt.formatoptions:remove({'o', 'r', 'c'})
+vim.cmd([[autocmd BufEnter * set formatoptions-=c formatoptions-=r formatoptions-=o]])
