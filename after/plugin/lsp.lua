@@ -48,3 +48,17 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 lsp.setup()
+
+function DiagnosticsSeverityVirtualText(level)
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = {
+            severity_limit = level,
+        },
+    }
+    )
+end
+
+-- Set virtual text to error only
+-- Reloads the file if it has not been modified
+vim.keymap.set("n", "<leader>q", function() DiagnosticsSeverityVirtualText("Error"); if vim.fn.getbufvar('%', '&modified')==0 then vim.cmd("edit") end end)
