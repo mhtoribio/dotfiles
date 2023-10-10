@@ -13,3 +13,5 @@ map J zoom out
 map i recolor
 map p print
 map g goto top
+map f scroll full-down
+map b scroll full-up
