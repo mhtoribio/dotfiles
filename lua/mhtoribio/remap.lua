@@ -24,6 +24,10 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader><CR>", "<cmd>.!sh<CR>")
 
+-- Quickfix list
+vim.keymap.set("n", "]g", "<cmd>cnext<CR>")
+vim.keymap.set("n", "[g", "<cmd>cprev<CR>")
+
 -- Turn folding off for markdown (show ``` etc)
 vim.keymap.set("n", "<leader>md", "<cmd>set cole=0<CR>")
 
