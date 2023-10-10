@@ -54,8 +54,6 @@ return require('packer').startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
-    use('jbyuki/nabla.nvim')
-    use('lervag/vimtex')
 
     -- Org Mode
     use{
