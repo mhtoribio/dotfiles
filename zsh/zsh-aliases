@@ -56,3 +56,6 @@ alias gfp="source gsa && git push && ksa"
 
 # CTF specific
 alias pwninit="pwninit --template-path ~/.config/pwninit-template.py"
+
+# HDMI display mirroring
+alias fix-display="xrandr --output HDMI-1 --auto --same-as eDP-1 --scale-from 2560x1440"
