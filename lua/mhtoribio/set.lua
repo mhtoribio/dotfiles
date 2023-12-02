@@ -26,3 +26,5 @@ vim.g.mapleader = " "
 
 -- Turn off automatic commenting on newline
 vim.cmd([[autocmd BufEnter * set formatoptions-=c formatoptions-=r formatoptions-=o]])
+
+vim.g.netrw_banner = 0
