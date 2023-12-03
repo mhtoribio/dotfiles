@@ -19,14 +19,17 @@ local plugins = {
         config = function() require("mhtoribio.plugins.telescope") end,
     },
 
-    {"ellisonleao/gruvbox.nvim", config = function() require("mhtoribio.plugins.colors") end},
+    {
+        "ellisonleao/gruvbox.nvim",
+        config = function() require("mhtoribio.plugins.colors") end,
+        priority = 1000,
+    },
 
     {
         'nvim-treesitter/nvim-treesitter',
         build = function() vim.fn["TSUpdate"]() end,
         config = function() require("mhtoribio.plugins.treesitter") end
     },
-    {'nvim-treesitter/playground'},
     {
         'theprimeagen/harpoon',
         lazy = false,
@@ -45,7 +48,7 @@ local plugins = {
             {'williamboman/mason-lspconfig.nvim'},
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/nvim-cmp', event = "InsertEnter"},
             {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
             {'hrsh7th/cmp-nvim-lsp'},
@@ -55,6 +58,12 @@ local plugins = {
     },
 
     {'junegunn/vim-easy-align', config = function() require("mhtoribio.plugins.align") end},
+    {
+        'numToStr/Comment.nvim',
+        lazy = false,
+        event = { "BufReadPre", "BufNewFile" },
+        config = function() require("mhtoribio.plugins.comment") end,
+    },
 
     {
         "iamcco/markdown-preview.nvim",

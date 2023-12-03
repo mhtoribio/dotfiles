@@ -32,5 +32,4 @@ vim.keymap.set("n", "[g", "<cmd>cprev<CR>")
 vim.keymap.set("n", "<leader>md", "<cmd>set cole=0<CR>")
 
 -- Compile rmarkdown (.rmd) files
--- should maybe be made into a plugin later?
-vim.keymap.set("n", "<leader>cc", "<cmd>!Rscript -e \"rmarkdown::render('%',params=list(args = myarg))\"<CR>")
+-- vim.keymap.set("n", "<leader>cc", "<cmd>!Rscript -e \"rmarkdown::render('%',params=list(args = myarg))\"<CR>")
