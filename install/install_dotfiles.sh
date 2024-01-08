@@ -1,16 +1,5 @@
 #!/usr/bin/env bash
 
-GH_SSH_KEY=$HOME/.ssh/id_ed25519 
-
-# Check for github ssh key
-if ! [ -f $GH_SSH_KEY ]; then
-    echo "Github ssh key not found. Place under $HOME/.ssh/id_ed25519"
-    exit 1
-fi
-
-eval "$(ssh-agent -s)"
-ssh-add $GH_SSH_KEY
-
 git clone git@github.com:mhtoribio/dotfiles.git $HOME/.dotfiles
 
 if [[ -d "$HOME/.config" ]]; then
@@ -46,6 +35,3 @@ if [[ $MOVE_CONFIG ]]; then
     cp -r ~/_temp_config/* ~/.config/
     rm -rf ~/_temp_config
 fi
-
-# Cleanup
-killall ssh-agent
