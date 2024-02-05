@@ -40,4 +40,7 @@ sudo apt-get install -y xdotool xcape
 # TMUX
 sudo apt-get install -y tmux
 
+# Looks
+sudo apt-get install -y polybar
+
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

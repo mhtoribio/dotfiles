@@ -18,6 +18,7 @@ ln -sv $HOME/.dotfiles/tmux $HOME/.config/tmux
 ln -sv $HOME/.dotfiles/zsh $HOME/.config/zsh
 ln -sv $HOME/.config/zsh/.zshenv $HOME/.zshenv
 ln -sv $HOME/.dotfiles/i3 $HOME/.config/i3
+ln -sv $HOME/.dotfiles/polybar $HOME/.config/polybar
 ln -sv $HOME/.dotfiles/i3status $HOME/.config/i3status
 ln -sv $HOME/.dotfiles/alacritty $HOME/.config/alacritty
 ln -sv $HOME/.dotfiles/zathura $HOME/.config/zathura
