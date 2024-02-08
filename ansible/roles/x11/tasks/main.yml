@@ -1,0 +1,13 @@
+---
+- name: Install x11 libraries
+  apt: name={{ item }} state=present
+  with_items:
+    - xdotool
+    - xcape
+    - xclip
+  become: true
+
+- name: Symlink x11 dotfiles
+  shell: stow -d ~/.dotfiles/stow-configs -t ~/ {{ item }}
+  with_items:
+    - x11

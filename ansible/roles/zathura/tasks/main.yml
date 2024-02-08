@@ -1,0 +1,11 @@
+---
+- name: Install zathura
+  become: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - zathura
+
+- name: Symlink zathura dotfiles
+  shell: stow -d ~/.dotfiles/stow-configs -t ~/ {{ item }}
+  with_items:
+    - zathura

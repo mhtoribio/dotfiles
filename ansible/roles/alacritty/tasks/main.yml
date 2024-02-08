@@ -1,0 +1,11 @@
+---
+- name: Install alacritty
+  become: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - alacritty
+
+- name: Symlink alacritty dotfiles
+  shell: stow -d ~/.dotfiles/stow-configs -t ~/ {{ item }}
+  with_items:
+    - alacritty

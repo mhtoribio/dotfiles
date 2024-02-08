@@ -1,0 +1,21 @@
+---
+- name: Install gdb
+  apt: name={{ item }} state=present
+  with_items:
+    - gdb
+  become: true
+
+- name: Cloning pwndbg (you need to install manually)
+  git:
+    repo: https://github.com/pwndbg/pwndbg
+    dest: ~/build/pwndbg
+
+- name: Cloning gdb splitmind
+  git:
+    repo: https://github.com/jerdna-regeiz/splitmind
+    dest: ~/build/splitmind
+
+- name: Symlink gdb dotfiles
+  shell: stow -d ~/.dotfiles/stow-configs -t ~/ {{ item }}
+  with_items:
+    - gdb

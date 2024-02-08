@@ -1,0 +1,15 @@
+---
+- name: Install zsh
+  become: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - zsh
+
+- name: Change default shell to zsh
+  become: true
+  user: shell='/usr/bin/zsh' name={{ ansible_ssh_user }}
+
+- name: Symlink zsh dotfiles
+  shell: stow -d ~/.dotfiles/stow-configs -t ~/ {{ item }}
+  with_items:
+    - zsh

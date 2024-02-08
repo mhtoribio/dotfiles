@@ -1,0 +1,20 @@
+---
+- name: Install rofi-emoji dependencies
+  apt: name={{ item }} state=present
+  with_items:
+    - rofi-dev
+    - autoconf
+    - automake
+    - libtool-bin
+    - libtool
+  become: true
+
+- name: Clone rofi-emoji
+  git:
+    repo: https://github.com/Mange/rofi-emoji.git
+    dest: ~/build/rofi-emoji
+
+- name: Build rofi-emoji (have to install manually)
+  shell: "cd ~/build/rofi-emoji && autoreconf -i && mkdir -p build && cd build && ../configure && make -j `nproc`"
+
+# cd ~/build/rofi-emoji && sudo make install && libtool --finish /usr/lib/x86_64-linux-gnu/rofi/
