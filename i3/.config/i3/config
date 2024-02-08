@@ -223,6 +223,6 @@ client.background       #FFFFFF
 #  status_command i3status
 #}
 
-exec --no-startup-id "~/.config/polybar/start_polybar.sh"
+exec --no-startup-id "~/.dotfiles/scripts/start_polybar.sh"
 
 exec --no-startup-id xdg-user-dirs-update
