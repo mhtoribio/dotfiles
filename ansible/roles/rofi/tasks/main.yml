@@ -1,0 +1,6 @@
+---
+- name: Install rofi
+  apt: name={{ item }} state=present
+  with_items:
+    - rofi
+  become: true

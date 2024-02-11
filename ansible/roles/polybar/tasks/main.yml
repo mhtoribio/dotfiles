@@ -1,0 +1,11 @@
+---
+- name: Install polybar
+  apt: name={{ item }} state=present
+  with_items:
+    - polybar
+  become: true
+
+- name: Symlink polybar dotfiles
+  shell: stow -d ~/.dotfiles/stow-configs -t ~/ {{ item }}
+  with_items:
+    - polybar

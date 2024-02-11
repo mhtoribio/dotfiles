@@ -1,0 +1,15 @@
+- name: Install tmux
+  apt: name={{ item }} state=present
+  with_items:
+    - tmux
+  become: true
+
+- name: Install tmux TPM
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: ~/.tmux/plugins/tpm
+
+- name: "Symlink tmux dotfiles"
+  shell: stow -d ~/.dotfiles/stow-configs -t ~/ {{ item }}
+  with_items:
+    - tmux

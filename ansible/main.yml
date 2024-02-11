@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  remote_user: "{{ localuser }}"
+  vars:
+    user: "{{ localuser }}"
+  roles:
+    - core # git etc
+    - zsh  # config and zsh as default shell
+    - tmux # config and program
+    - alacritty # config and program
+    - x11 # config
+    - convenience # fzf, bc, etc.
+    - polybar # config and program
+    - rofi # config and program
+    - rofi-emoji # build (have to build and install manually)
+    - i3 # config and program
+    - gdb # config (have to install pwndbg manually)
