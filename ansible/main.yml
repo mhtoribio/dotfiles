@@ -13,6 +13,6 @@
     - convenience # fzf, bc, etc.
     - polybar # config and program
     - rofi # config and program
-    - rofi-emoji # build (have to install manually)
+    - rofi-emoji # build (have to build and install manually)
     - i3 # config and program
     - gdb # config (have to install pwndbg manually)
