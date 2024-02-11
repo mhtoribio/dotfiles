@@ -16,3 +16,4 @@
     - rofi-emoji # build (have to build and install manually)
     - i3 # config and program
     - gdb # config (have to install pwndbg manually)
+    - nvim # config and program
