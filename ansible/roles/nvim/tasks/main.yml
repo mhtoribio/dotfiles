@@ -1,0 +1,26 @@
+---
+- name: Clone neovim
+  git:
+    repo: https://github.com/neovim/neovim.git
+    dest: ~/build/neovim
+    version: stable
+    single_branch: true
+
+- name: Build neovim
+  community.general.make:
+    chdir: ~/build/neovim
+    jobs: 8
+    target: "{{ item }}"
+  with_items:
+    - all
+
+- name: Install neovim using shell
+  become: true
+  ansible.builtin.shell:
+    cmd: make install
+    chdir: "/home/{{ ansible_ssh_user }}/build/neovim"
+
+- name: Symlink neovim dotfiles
+  shell: stow -d ~/.dotfiles/stow-configs -t ~/ {{ item }}
+  with_items:
+    - nvim
