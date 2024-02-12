@@ -4,6 +4,7 @@
     repo: https://github.com/neovim/neovim.git
     dest: ~/build/neovim
     version: stable
+    force: true
     single_branch: true
 
 - name: Build neovim
