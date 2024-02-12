@@ -10,6 +10,7 @@
     - tmux # config and program
     - alacritty # config and program
     - x11 # config
+    - zathura # config and program
     - convenience # fzf, bc, etc.
     - polybar # config and program
     - rofi # config and program
