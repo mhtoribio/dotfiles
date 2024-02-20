@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+cur_map=$(setxkbmap -query | grep layout | awk '{print $2}')
+if [ $cur_map == "us" ]
+then
+    setxkbmap "dk"
+else
+    setxkbmap "us"
+fi

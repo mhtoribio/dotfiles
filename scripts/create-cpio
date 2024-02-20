@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Creates a cpio archive of all files in current directory
+#   usage: create-cpio foo.cpio
+find . | cpio -H newc -ov -F $1

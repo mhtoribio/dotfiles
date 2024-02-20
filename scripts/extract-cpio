@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Extracts a cpio archive to the current directory
+#   usage: extract-cpio foo.cpio
+cpio -idv < $1

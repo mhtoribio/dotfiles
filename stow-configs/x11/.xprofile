@@ -1,6 +1,6 @@
 #!/bin/sh
 
 # Run the remaps script to remap caps lock
-$HOME/.local/hmbin/remaps
-export PATH="$HOME/.local/bin:$HOME/.local/hmbin:$PATH"
+$HOME/.dotfiles/scripts/remaps
+export PATH="$HOME/.local/bin:$HOME/.dotfiles/scripts:$PATH"
 feh --bg-scale ~/Pictures/.bg.png

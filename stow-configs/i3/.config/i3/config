@@ -73,8 +73,8 @@ bindcode $mod+60 exec "rofi -modi emoji -show emoji -theme Arc-Dark -font 'hack 
 bindsym $mod+w exec --no-startup-id "brave-browser"
 
 # script shortcuts
-bindsym $mod+z exec --no-startup-id "~/.local/hmbin/toggle-keymap"
-bindsym $mod+q exec --no-startup-id "~/.local/hmbin/remaps"
+bindsym $mod+z exec --no-startup-id "~/.dotfiles/scripts/toggle-keymap"
+bindsym $mod+q exec --no-startup-id "~/.dotfiles/scripts/remaps"
 
 # change focus
 bindsym $mod+h focus left

@@ -5,7 +5,7 @@ bindkey -e
 bindkey -s '^n' '^e^ucd "$(dirname "$(fzf)")"\n'
 
 # tmux-sessionizer
-bindkey -s '^f' '^e^u$HOME/.local/hmbin/tmux-sessionizer\n'
+bindkey -s '^f' '^e^u$HOME/.dotfiles/scripts/tmux-sessionizer\n'
 
 # Navigate with lf
 # do not bind '^j' or '^m' as it will overwrite the other keybindings and the behaviour of pressing ENTER

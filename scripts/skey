@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+killall screenkey || screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810
