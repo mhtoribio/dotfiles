@@ -18,10 +18,14 @@ return {
         local cmp = require('cmp')
         local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
+        -- cmp turned on by default
+        vim.g.cmptoggle = true
+        vim.keymap.set("n", "<leader><leader>c", "<cmd>lua vim.g.cmptoggle = not vim.g.cmptoggle<CR>", { desc = "toggle nvim-cmp" })
+
         cmp.setup({
-            completion = {
-                autocomplete = false,
-            },
+            enabled = function()
+                return vim.g.cmptoggle
+            end,
             sources = {
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
