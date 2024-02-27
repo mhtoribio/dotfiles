@@ -4,7 +4,7 @@
 if [ $# -eq 1 ]; then
     selected=$1
 else
-    selected=$(find ~/programming ~/ctf/ctf-private ~/ctf/ctf-writeups ~/ctf/ctf-unsorted ~/ctf ~/ ~/.dotfiles ~/.config ~/.local ~/uni ~/dev -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/projects ~/ctf/ctf-private ~/ctf/ctf-writeups ~/ctf/ctf-unsorted ~/ctf ~/ ~/.local ~/uni -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [ -z "$selected" ]; then
