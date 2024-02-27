@@ -5,16 +5,19 @@
   vars:
     user: "{{ localuser }}"
   roles:
+      # terminal
     - core # git etc
     - zsh  # config and zsh as default shell
     - tmux # config and program
+    - convenience # fzf, bc, etc.
+    - gdb # config (have to install pwndbg manually)
+    - nvim # config and program
+      # in between
+    - zathura # config and program
+      # graphical only
     - alacritty # config and program
     - x11 # config
-    - zathura # config and program
-    - convenience # fzf, bc, etc.
     - polybar # config and program
     - rofi # config and program
     - rofi-emoji # build (have to build and install manually)
     - i3 # config and program
-    - gdb # config (have to install pwndbg manually)
-    - nvim # config and program
