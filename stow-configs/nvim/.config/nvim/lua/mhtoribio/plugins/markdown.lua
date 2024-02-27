@@ -12,6 +12,8 @@ return {
         ft = "markdown",
         config = function() 
             require('markdown-image-paste').setup({
+                dirname = "images",
+                filename = "img",
                 custom_filename = true,
             })
             vim.api.nvim_set_keymap('n','<C-i>', "<cmd>lua require('markdown-image-paste').pasteImage()<CR>", {noremap = true})
