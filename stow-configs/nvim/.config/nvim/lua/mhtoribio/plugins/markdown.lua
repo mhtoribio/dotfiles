@@ -6,8 +6,8 @@ return {
         build = function() vim.fn["mkdp#util#install"]() end,
     },
     {
-        'mhtoribio/markdown-image-paste',
-        -- 'fred441a/markdown-image-paste',
+        -- 'mhtoribio/markdown-image-paste',
+        'fred441a/markdown-image-paste',
         -- dir = '~/projects/markdown-image-paste',
         ft = "markdown",
         config = function() 
