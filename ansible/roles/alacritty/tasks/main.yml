@@ -4,6 +4,7 @@
   apt: name={{ item }} state=latest
   with_items:
     - alacritty
+    - fonts-hack
 
 - name: Symlink alacritty dotfiles
   shell: stow -d ~/.dotfiles/stow-configs -t ~/ {{ item }}
