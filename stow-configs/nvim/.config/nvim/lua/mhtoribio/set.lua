@@ -27,4 +27,7 @@ vim.g.mapleader = " "
 -- Turn off automatic commenting on newline
 vim.cmd([[autocmd BufEnter * set formatoptions-=c formatoptions-=r formatoptions-=o]])
 
+-- Make nvim recognize .slint files
+vim.cmd([[autocmd BufEnter *.slint :setlocal filetype=slint]])
+
 vim.g.netrw_banner = 0
