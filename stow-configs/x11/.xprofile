@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Run the remaps script to remap caps lock
+xrandr --output eDP-1 --mode 1920x1080
 $HOME/.dotfiles/scripts/remaps
 export PATH="$HOME/.local/bin:$HOME/.dotfiles/scripts:$PATH"
 feh --bg-scale ~/.bg.png
