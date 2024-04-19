@@ -3,6 +3,7 @@
         ./features/nvim.nix
         ./features/tmux.nix
         ./features/rofi.nix
+        ./features/i3.nix
         #./features/zathura.nix
         ./bundles/general.nix
         ./bundles/desktop.nix

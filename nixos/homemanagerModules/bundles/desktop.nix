@@ -5,6 +5,7 @@
     config = lib.mkIf config.bundles.desktop.enable {
 
         rofi.enable = lib.mkDefault true;
+        i3.enable = lib.mkDefault true;
 
         home.packages = with pkgs; [
             alacritty
