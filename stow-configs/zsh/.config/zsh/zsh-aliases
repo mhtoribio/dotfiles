@@ -43,13 +43,6 @@ alias ipy="ipython"
 alias ipy2="ipython2"
 alias ipy3="ipython3"
 
-# cd aliases
-alias cdp="cd $HOME/programming"
-alias cdpa="cd $HOME/programming/aau"
-
-# Spawn TMUX session in Org Mode directory
-alias org="tmux-sessionizer ~/Dropbox/org"
-
 # CTF specific
 alias pwninit="pwninit --template-path ~/.config/pwninit-template.py"
 

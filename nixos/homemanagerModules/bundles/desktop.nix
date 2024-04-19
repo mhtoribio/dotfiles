@@ -6,6 +6,8 @@
 
         rofi.enable = lib.mkDefault true;
         i3.enable = lib.mkDefault true;
+        polybar.enable = lib.mkDefault true;
+        discord.enable = lib.mkDefault true;
 
         home.packages = with pkgs; [
             alacritty

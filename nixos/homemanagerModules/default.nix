@@ -2,8 +2,11 @@
     imports = [
         ./features/nvim.nix
         ./features/tmux.nix
+        ./features/zsh.nix
         ./features/rofi.nix
+        ./features/polybar.nix
         ./features/i3.nix
+        ./features/discord.nix
         #./features/zathura.nix
         ./bundles/general.nix
         ./bundles/desktop.nix

@@ -1,3 +1,4 @@
+# zmodload zsh/zprof #profiling
 # (man zshoptions)
 setopt nomatch menucomplete
 
@@ -26,5 +27,8 @@ source "$ZDOTDIR/zsh-functions"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-keybindings"
-zsh_add_file "zsh-wsl"
+if [ -f /etc/wsl.conf ]; then
+    zsh_add_file "zsh-wsl"
+fi
 zsh_add_file "zsh-prompt"
+# zprof #profiling

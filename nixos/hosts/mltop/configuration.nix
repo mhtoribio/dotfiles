@@ -15,7 +15,7 @@
     networking.hostName = "mltop"; # Define your hostname.
 #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-        nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 # Enable networking
     networking.networkmanager.enable = true;
@@ -43,10 +43,8 @@
         windowManager.i3.enable = true;
         displayManager.lightdm.enable = true;
         xkb.layout = "us";
+        resolutions = [{x = 1920; y = 1080;}];
     };
-
-# Enable CUPS to print documents.
-#services.printing.enable = true;
 
 # Enable sound with pipewire.
     sound.enable = true;
@@ -72,27 +70,17 @@
     users.users.markus = {
         isNormalUser = true;
         extraGroups = [ "networkmanager" "wheel" ];
+        shell = pkgs.zsh;
         # packages = with pkgs; [
         # ];
     };
+    programs.zsh.enable = true;
 
 # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-# Enable the OpenSSH daemon.
-# services.openssh.enable = true;
-
 # Open ports in the firewall.
     networking.firewall.allowedTCPPorts = [ 9000 8000 ];
-
-# Home Manager
-#     home-manager = {
-#         extraSpecialArgs = { inherit inputs outputs; };
-#         users = {
-# # Import your home-manager configuration
-#             "markus" = import ./home.nix;
-#         };
-#     };
 
     environment.systemPackages = with pkgs; [
         home-manager
