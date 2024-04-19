@@ -102,6 +102,20 @@
         gcc
     ];
 
+    services.keyd = {
+        enable = true;
+        keyboards = {
+            default = {
+                ids = [ "*" ];
+                settings = {
+                    main = {
+                        capslock = "overload(meta, esc)";
+                    };
+                };
+            };
+        };
+    };
+
     system.stateVersion = "23.11"; # Don't change
 
 }
