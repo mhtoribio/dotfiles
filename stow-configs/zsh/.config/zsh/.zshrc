@@ -9,8 +9,12 @@ unsetopt beep
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
 _comp_options+=(globdots) # include hidden files
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
