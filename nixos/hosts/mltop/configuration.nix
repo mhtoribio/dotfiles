@@ -69,7 +69,7 @@
 # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.markus = {
         isNormalUser = true;
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "docker" ];
         shell = pkgs.zsh;
         # packages = with pkgs; [
         # ];
@@ -81,6 +81,8 @@
 
 # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
+
+    virtualisation.docker.enable = true;
 
 # Open ports in the firewall.
     networking.firewall.allowedTCPPorts = [ 9000 8000 ];
