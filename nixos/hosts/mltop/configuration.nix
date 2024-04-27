@@ -93,7 +93,16 @@
         firefox
         git
         gcc
+        linux-manual
+        man-pages
+        man-pages-posix
     ];
+
+    documentation.enable = true;
+    documentation.man.enable = true;
+    documentation.dev.enable = true;
+    documentation.info.enable = true;
+    documentation.doc.enable = true;
 
     services.keyd = {
         enable = true;
