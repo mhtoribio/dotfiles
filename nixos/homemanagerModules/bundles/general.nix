@@ -38,6 +38,7 @@
             unzip
             wget
             zip
+            python3
         ];
 
         programs.git = {
