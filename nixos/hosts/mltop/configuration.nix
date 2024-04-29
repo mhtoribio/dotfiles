@@ -104,6 +104,12 @@
     documentation.info.enable = true;
     documentation.doc.enable = true;
 
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+        # Add any missing dynamic libraries for unpackaged programs
+        # here, NOT in environment.systemPackages
+    ];
+
     services.keyd = {
         enable = true;
         keyboards = {
