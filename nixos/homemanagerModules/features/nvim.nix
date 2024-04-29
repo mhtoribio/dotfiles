@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ lib, config, pkgs, ... }: {
     options = {
         nvim.enable = lib.mkEnableOption "enable nvim";
     };
@@ -8,6 +8,13 @@
             defaultEditor = true;
             vimAlias = true;
         };
+        home.packages = with pkgs; [
+            lua-language-server
+            nil
+            clang-tools
+            rust-analyzer
+            nodePackages.pyright
+        ];
         home.file.".config/nvim/".source = "${config.stow-base-folder}/nvim/.config/nvim/";
     };
 }
