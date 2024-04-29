@@ -96,6 +96,7 @@
         linux-manual
         man-pages
         man-pages-posix
+        wireguard-tools
     ];
 
     documentation.enable = true;
@@ -104,11 +105,11 @@
     documentation.info.enable = true;
     documentation.doc.enable = true;
 
-    programs.nix-ld.enable = true;
-    programs.nix-ld.libraries = with pkgs; [
-        # Add any missing dynamic libraries for unpackaged programs
-        # here, NOT in environment.systemPackages
-    ];
+    # programs.nix-ld.enable = true;
+    # programs.nix-ld.libraries = with pkgs; [
+    #     # Add any missing dynamic libraries for unpackaged programs
+    #     # here, NOT in environment.systemPackages
+    # ];
 
     services.keyd = {
         enable = true;
