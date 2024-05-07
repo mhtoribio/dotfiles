@@ -17,7 +17,7 @@
             xsel
             feh
             pavucontrol
-            wine64
+            wine
         ];
     };
 }
