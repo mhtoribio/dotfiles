@@ -41,10 +41,12 @@
     services.xserver = {
         enable = true;
         windowManager.i3.enable = true;
-        displayManager.lightdm.enable = true;
+        displayManager.gdm.enable = true;
         xkb.layout = "us";
         resolutions = [{x = 1920; y = 1080;}];
     };
+
+    programs.sway.enable = true;
 
 # Enable sound with pipewire.
     sound.enable = true;
@@ -69,7 +71,7 @@
 # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.markus = {
         isNormalUser = true;
-        extraGroups = [ "networkmanager" "wheel" "docker" ];
+        extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
         shell = pkgs.zsh;
         # packages = with pkgs; [
         # ];
@@ -82,7 +84,13 @@
 # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
+    boot.supportedFilesystems = [ "ntfs" ];
+
+    boot.kernelModules = [ "kvm-intel" ];
     virtualisation.docker.enable = true;
+    virtualisation.libvirtd.enable = true;
+    virtualisation.virtualbox.host.enable = true;
+    virtualisation.virtualbox.guest.enable = true;
 
 # Open ports in the firewall.
     networking.firewall.allowedTCPPorts = [ 9000 8000 ];
