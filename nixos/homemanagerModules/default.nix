@@ -8,6 +8,7 @@
         ./features/i3.nix
         ./features/discord.nix
         ./features/brave.nix
+        ./features/firefox.nix
         #./features/zathura.nix
         ./bundles/general.nix
         ./bundles/desktop.nix

@@ -9,10 +9,10 @@
         polybar.enable = lib.mkDefault true;
         discord.enable = lib.mkDefault true;
         brave.enable = lib.mkDefault true;
+        firefox.enable = lib.mkDefault true;
 
         home.packages = with pkgs; [
             alacritty
-            firefox
             xclip
             xsel
             feh
