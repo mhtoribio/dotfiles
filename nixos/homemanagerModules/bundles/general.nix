@@ -19,11 +19,8 @@
         };
 
         home.packages = with pkgs; [
-            alacritty
-            firefox
             xclip
             xsel
-
             file
             fzf
             htop
