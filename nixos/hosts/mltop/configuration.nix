@@ -68,6 +68,18 @@
 # Enable touchpad support (enabled default in most desktopManager).
 # services.xserver.libinput.enable = true;
 
+# Don't require password for sudo
+# I'm already logged in and its a personal machine, why would i need to enter password?
+    security.sudo.extraRules= [
+    {  users = [ "markus" ];
+        commands = [
+        { command = "ALL" ;
+            options= [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+        ];
+    }
+    ];
+
 # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.markus = {
         isNormalUser = true;
