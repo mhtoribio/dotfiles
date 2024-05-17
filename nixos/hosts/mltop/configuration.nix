@@ -84,13 +84,9 @@
     users.users.markus = {
         isNormalUser = true;
         extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
-        shell = pkgs.zsh;
+        shell = pkgs.bash;
         # packages = with pkgs; [
         # ];
-    };
-    programs.zsh = {
-        enable = true;
-        enableCompletion = false;
     };
 
 # Allow unfree packages

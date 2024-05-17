@@ -9,7 +9,7 @@
 
         nvim.enable = lib.mkDefault true;
         tmux.enable = lib.mkDefault true;
-        zsh.enable = lib.mkDefault true;
+        bash.enable = lib.mkDefault true;
 
         nixpkgs = {
             config = {

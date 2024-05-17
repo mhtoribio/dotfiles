@@ -3,6 +3,7 @@
         ./features/nvim.nix
         ./features/tmux.nix
         ./features/zsh.nix
+        ./features/bash.nix
         ./features/rofi.nix
         ./features/polybar.nix
         ./features/i3.nix
