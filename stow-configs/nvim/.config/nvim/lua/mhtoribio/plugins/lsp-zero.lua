@@ -70,8 +70,19 @@ return {
             lsp.configure('lua_ls', lua_ls_config)
             lsp.configure('rust_analyzer', rust_analyzer_config)
 
-            lsp.setup_servers(lsp_servers)
             lsp.on_attach(on_attach)
+            lsp.format_mapping('gq', {
+                format_opts = {
+                    async = false,
+                    timeout_ms = 10000,
+                },
+                servers = {
+                    ['rust_analyzer'] = {'rust'},
+                    ['nil_ls'] = {'nixpkgs-fmt'},
+                    ['lua_ls'] = {'lua_ls'},
+                }
+            })
+            lsp.setup_servers(lsp_servers)
             lsp.setup()
 
             -- Stop annoying line movements when entering and exiting insert mode

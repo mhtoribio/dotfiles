@@ -11,4 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("mhtoribio.plugins")
+require("lazy").setup("mhtoribio.plugins", {
+    lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
+})

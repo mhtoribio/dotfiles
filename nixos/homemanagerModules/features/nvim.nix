@@ -14,6 +14,7 @@
             clang-tools
             rust-analyzer
             nodePackages.pyright
+            nixpkgs-fmt
         ];
         home.file.".config/nvim/".source = "${config.stow-base-folder}/nvim/.config/nvim/";
     };
