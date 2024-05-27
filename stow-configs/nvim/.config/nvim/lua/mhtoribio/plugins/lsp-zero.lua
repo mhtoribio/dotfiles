@@ -8,6 +8,7 @@ local lsp_servers = {
     'nil_ls',
     'rust_analyzer',
     'pyright',
+    'gopls',
 }
 
 local lua_ls_config = {

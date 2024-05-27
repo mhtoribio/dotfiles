@@ -15,6 +15,7 @@
             rust-analyzer
             nodePackages.pyright
             nixpkgs-fmt
+            gopls
         ];
         home.file.".config/nvim/".source = "${config.stow-base-folder}/nvim/.config/nvim/";
     };

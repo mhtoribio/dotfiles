@@ -7,7 +7,7 @@
     };
     config = lib.mkIf config.bundles.general.enable {
 
-        nvim.enable = lib.mkDefault true;
+        nixvim.enable = lib.mkDefault true;
         tmux.enable = lib.mkDefault true;
         bash.enable = lib.mkDefault true;
 

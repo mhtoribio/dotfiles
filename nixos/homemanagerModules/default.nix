@@ -1,6 +1,7 @@
 { pkgs, lib, config, ...}: {
     imports = [
         ./features/nvim.nix
+        ./features/nixvim.nix
         ./features/tmux.nix
         ./features/zsh.nix
         ./features/bash.nix
