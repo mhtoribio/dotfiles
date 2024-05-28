@@ -155,6 +155,11 @@
           action = "<cmd>Oil<CR>";
         }
         {
+          mode = "n";
+          key = "<leader>gs";
+          action = "<cmd>Git<CR>";
+        }
+        {
           mode = "v";
           key = "K";
           action = ":m '<-2<CR>gv=gv";
