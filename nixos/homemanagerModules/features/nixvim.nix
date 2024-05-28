@@ -2,10 +2,13 @@
   imports = [ inputs.nixvim.homeManagerModules.nixvim ];
   options = { nixvim.enable = lib.mkEnableOption "enable nixvim"; };
   config = lib.mkIf config.nixvim.enable {
+
     programs.nixvim = {
+
       enable = true;
       vimAlias = true;
       globals = { mapleader = " "; };
+
       opts = {
         relativenumber = true;
         number = true;
@@ -18,7 +21,14 @@
         termguicolors = true;
         scrolloff = 2;
       };
+
+      colorschemes.catppuccin = {
+        enable = true;
+        settings.flavour = "mocha";
+      };
+
       plugins = {
+
         telescope = {
           enable = true;
           keymaps = {
@@ -29,6 +39,7 @@
             "<C-p>" = { action = "git_files"; };
           };
         };
+
         harpoon = {
           enable = true;
           saveOnToggle = true;
@@ -43,6 +54,7 @@
             };
           };
         };
+
         conform-nvim = {
           enable = true;
           formattersByFt = {
@@ -59,7 +71,27 @@
             timeoutMs = 2000;
           };
         };
+
         oil.enable = true;
+
+        markdown-preview.enable = true;
+
+        fugitive.enable = true;
+
+        comment = {
+          enable = true;
+          settings = {
+            toggler = {
+              line = "<leader>cc";
+              block = "<leader>bc";
+            };
+            opleader = {
+              line = "<leader>c";
+              block = "<leader>b";
+            };
+          };
+        };
+
         lsp = {
           enable = true;
           keymaps = {
@@ -94,8 +126,123 @@
             gopls.enable = true;
           };
         };
-      };
+
+        cmp = {
+          enable = true;
+          settings = {
+            sources = [
+              { name = "nvim_lsp"; }
+              { name = "luasnip"; }
+              { name = "buffer"; }
+              { name = "path"; }
+            ];
+            mappings = {
+              "<C-p>" = "cmp.mapping.select_prev_item()";
+              "<C-n>" = "cmp.mapping.select_next_item()";
+              "<C-y>" = "cmp.mapping.confirm()";
+              "<C-Space>" = "cmp.mapping.complete()";
+            };
+          };
+        };
+
+      }; # plugins
+
+      # top-level keymaps
+      keymaps = [
+        {
+          mode = "n";
+          key = "-";
+          action = "<cmd>Oil<CR>";
+        }
+        {
+          mode = "v";
+          key = "K";
+          action = ":m '<-2<CR>gv=gv";
+        }
+        {
+          mode = "v";
+          key = "J";
+          action = ":m '>+1<CR>gv=gv";
+        }
+        {
+          mode = "n";
+          key = "J";
+          action = "mzJ`z";
+        }
+        {
+          mode = "n";
+          key = "<C-d>";
+          action = "<C-d>zz";
+        }
+        {
+          mode = "n";
+          key = "<C-u>";
+          action = "<C-u>zz";
+        }
+        {
+          mode = "n";
+          key = "n";
+          action = "nzzzv";
+        }
+        {
+          mode = "n";
+          key = "N";
+          action = "Nzzzv";
+        }
+        {
+          mode = "x";
+          key = "<leader>p";
+          action = ''"_dP'';
+        }
+        {
+          key = "<leader>y";
+          action = ''"+y'';
+        }
+        {
+          mode = "n";
+          key = "<leader>Y";
+          action = ''"+Y'';
+        }
+        {
+          mode = "n";
+          key = "<C-f>";
+          action = "<cmd>silent !tmux neww tmux-sessionizer<CR>";
+        }
+        {
+          mode = "n";
+          key = "<leader>s";
+          action = ":%s/<<C-r><C-w>>/<C-r><C-w>/gI<Left><Left><Left>";
+        }
+        {
+          mode = "n";
+          key = "<leader>x";
+          action = "<cmd>!chmod +x %<CR>";
+          options.silent = true;
+        }
+        {
+          mode = "n";
+          key = "<leader><leader><CR>";
+          action = "<cmd>.!sh<CR>";
+        }
+        {
+          mode = "n";
+          key = "]g";
+          action = "<cmd>cnext<CR>";
+        }
+        {
+          mode = "n";
+          key = "[g";
+          action = "<cmd>cprev<CR>";
+        }
+        {
+          mode = "n";
+          key = "<leader>md";
+          action = "<cmd>set cole=0<CR>";
+        }
+      ];
+
     };
+
     home.packages = with pkgs; [
       ripgrep
       astyle
