@@ -74,6 +74,8 @@
 
         oil.enable = true;
 
+        dressing.enable = true;
+
         markdown-preview.enable = true;
 
         fugitive.enable = true;
