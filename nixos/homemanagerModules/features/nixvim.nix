@@ -136,7 +136,7 @@
               { name = "buffer"; }
               { name = "path"; }
             ];
-            mappings = {
+            mapping = {
               "<C-p>" = "cmp.mapping.select_prev_item()";
               "<C-n>" = "cmp.mapping.select_next_item()";
               "<C-y>" = "cmp.mapping.confirm()";
