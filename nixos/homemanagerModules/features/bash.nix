@@ -1,7 +1,5 @@
 { lib, config, pkgs, ... }: {
-  options = {
-    bash.enable = lib.mkEnableOption "enable bash";
-  };
+  options = { bash.enable = lib.mkEnableOption "enable bash"; };
   config = lib.mkIf config.bash.enable {
     programs.bash = {
       enable = true;
@@ -22,8 +20,8 @@
         bind '"\C-n":"\C-e\C-u cd \"$(dirname \"$(fzf)\")\"\n"'
       '';
       sessionVariables = {
-        GIT_EDITOR="nvim";
-        EDITOR="nvim";
+        GIT_EDITOR = "nvim";
+        EDITOR = "nvim";
       };
       shellAliases = {
         # Confirm before overwriting something
@@ -63,7 +61,8 @@
         ipy = "ipython";
         ipy3 = "ipython3";
         # HDMI display mirroring
-        fix-display = "xrandr --output HDMI-1 --auto --same-as eDP-1 --scale-from 2560x1440";
+        fix-display =
+          "xrandr --output HDMI-1 --auto --same-as eDP-1 --scale-from 2560x1440";
       };
 
     };
