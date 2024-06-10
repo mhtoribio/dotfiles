@@ -126,6 +126,7 @@
               installRustc = true;
             };
             gopls.enable = true;
+            java-language-server.enable = true;
           };
         };
 
