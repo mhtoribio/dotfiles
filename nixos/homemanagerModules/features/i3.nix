@@ -45,7 +45,7 @@
             "${modifier}+Shift+k" = "move up";
             "${modifier}+Shift+l" = "move right";
             "${modifier}+t" = "layout tabbed";
-            "${modifier}+Shift+s" = "${pkgs.flameshot}/bin/flameshot gui";
+            "${modifier}+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui";
           };
 
         modes = {
