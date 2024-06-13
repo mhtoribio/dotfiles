@@ -80,6 +80,12 @@
 
         fugitive.enable = true;
 
+        clipboard-image = {
+          enable = true;
+          clipboardPackage = pkgs.xclip;
+          default = { imgDir = "images"; };
+        };
+
         comment = {
           enable = true;
           settings = {
@@ -128,6 +134,7 @@
             gopls.enable = true;
             java-language-server.enable = true;
             tsserver.enable = true;
+            ltex.enable = true;
           };
         };
 
