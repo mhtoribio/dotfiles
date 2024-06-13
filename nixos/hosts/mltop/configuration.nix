@@ -103,7 +103,8 @@
   virtualisation.virtualbox.guest.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 9000 8000 ];
+  # networking.firewall.allowedTCPPorts = [ 9000 8000 ];
+  networking.firewall.enable = false;
 
   environment.systemPackages = with pkgs; [
     home-manager
