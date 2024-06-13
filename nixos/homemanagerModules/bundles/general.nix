@@ -38,6 +38,7 @@
       zip
       python3
       bat
+      jq
     ];
 
     programs.git = {
