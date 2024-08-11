@@ -11,6 +11,14 @@
     brave.enable = lib.mkDefault true;
     firefox.enable = lib.mkDefault true;
 
-    home.packages = with pkgs; [ alacritty xclip xsel feh pavucontrol wine ];
+    home.packages = with pkgs; [
+      alacritty
+      xclip
+      xsel
+      feh
+      pavucontrol
+      wine
+      zathura
+    ];
   };
 }
