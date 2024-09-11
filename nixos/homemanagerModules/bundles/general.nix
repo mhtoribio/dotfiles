@@ -39,6 +39,7 @@
       python3
       bat
       jq
+      devenv
     ];
 
     programs.git = {
