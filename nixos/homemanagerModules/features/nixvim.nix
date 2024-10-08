@@ -66,7 +66,7 @@
             rust = [ "rustfmt" ];
             sh = [ "shfmt" ];
           };
-          formatOnSave = {
+          settings.format_on_save = {
             lspFallback = true;
             timeoutMs = 2000;
           };

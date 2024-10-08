@@ -19,6 +19,8 @@
       # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixpkgs-quartus.url = "github:nixos/nixpkgs/nixos-23.05";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -27,6 +29,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
     in {
+      overlays = import ./overlays.nix { inherit inputs; };
       nixosConfigurations = {
         mltop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };

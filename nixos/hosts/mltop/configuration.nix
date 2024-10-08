@@ -84,7 +84,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.markus = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" "dialout" ];
     shell = pkgs.bash;
     # packages = with pkgs; [
     # ];
@@ -115,6 +115,9 @@
     man-pages
     man-pages-posix
     wireguard-tools
+    usbutils
+    pciutils
+    quartus.quartus-prime-lite
   ];
 
   documentation.enable = true;
