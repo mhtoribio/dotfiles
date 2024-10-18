@@ -90,9 +90,6 @@
     # ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   boot.supportedFilesystems = [ "ntfs" ];
 
   boot.kernelModules = [ "kvm-intel" ];
@@ -117,7 +114,7 @@
     wireguard-tools
     usbutils
     pciutils
-    quartus.quartus-prime-lite
+    quartus-prime-old.quartus-prime-lite
   ];
 
   documentation.enable = true;

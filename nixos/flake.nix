@@ -20,18 +20,31 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-matlab = {
+      # nix-matlab's Nixpkgs input follows Nixpkgs' nixos-unstable branch. However
+      # your Nixpkgs revision might not follow the same branch. You'd want to
+      # match your Nixpkgs and nix-matlab to ensure fontconfig related
+      # compatibility.
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "gitlab:doronbehar/nix-matlab";
+    };
+
     nixpkgs-quartus.url = "github:nixos/nixpkgs/nixos-23.05";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-matlab, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      flake-overlays = [ nix-matlab.overlay ];
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = import ./overlays.nix { inherit inputs; };
+      };
     in {
-      overlays = import ./overlays.nix { inherit inputs; };
       nixosConfigurations = {
         mltop = nixpkgs.lib.nixosSystem {
+          inherit pkgs;
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/mltop/configuration.nix ./nixosModules ];
         };

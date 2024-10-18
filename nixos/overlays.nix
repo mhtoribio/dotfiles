@@ -1,14 +1,15 @@
-{ inputs, ... }: {
-  unstable-packages = final: _prev: {
+{ inputs, ... }: [
+  (self: super: {
     unstable = import inputs.nixpkgs {
-      system = final.system;
+      system = self.system;
       config.allowUnfree = true;
     };
-  };
-  modifications = final: _prev: {
-    quartus = import inputs.nixpkgs-quartus {
-      system = final.system;
+  })
+  (self: super: {
+    quartus-prime-old = import inputs.nixpkgs-quartus {
+      system = self.system;
       config.allowUnfree = true;
     };
-  };
-}
+  })
+  inputs.nix-matlab.overlay
+]
