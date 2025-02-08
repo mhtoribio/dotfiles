@@ -25,11 +25,6 @@
     bundles.general.enable = lib.mkDefault true;
     bundles.desktop.enable = lib.mkDefault false;
 
-    nixpkgs = {
-      overlays =
-        [ outputs.overlays.modifications outputs.overlays.unstable-packages ];
-      config = { allowUnfree = true; };
-    };
   };
 
 }

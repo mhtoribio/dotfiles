@@ -30,9 +30,10 @@
     };
 
     nixpkgs-quartus.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixos-wsl.url = "github:nix-community/nixos-wsl";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-matlab, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-matlab, nixos-wsl, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -48,6 +49,11 @@
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/mltop/configuration.nix ./nixosModules ];
         };
+        wsl = nixpkgs.lib.nixosSystem {
+          inherit pkgs;
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/wsl/configuration.nix ./nixosModules nixos-wsl.nixosModules.wsl ];
+        };
       };
       homeConfigurations = {
         markus = inputs.home-manager.lib.homeManagerConfiguration {
@@ -55,6 +61,12 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules =
             [ ./hosts/mltop/home.nix self.outputs.homeManagerModules.default ];
+        };
+        wsl = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules =
+            [ ./hosts/wsl/home.nix self.outputs.homeManagerModules.default ];
         };
       };
       homeManagerModules.default = ./homemanagerModules;
