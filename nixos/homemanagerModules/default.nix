@@ -11,6 +11,7 @@
     ./features/discord.nix
     ./features/brave.nix
     ./features/firefox.nix
+    ./features/obsidian.nix
     #./features/zathura.nix
     ./bundles/general.nix
     ./bundles/desktop.nix
@@ -25,6 +26,7 @@
     bundles.general.enable = lib.mkDefault true;
     bundles.desktop.enable = lib.mkDefault false;
 
+    nixpkgs = { config = { allowUnfree = true; }; };
   };
 
 }

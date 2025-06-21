@@ -10,6 +10,7 @@
     discord.enable = lib.mkDefault true;
     brave.enable = lib.mkDefault true;
     firefox.enable = lib.mkDefault true;
+    obsidian.enable = lib.mkDefault true;
 
     home.packages = with pkgs; [
       alacritty

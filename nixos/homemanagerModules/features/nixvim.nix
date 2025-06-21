@@ -40,20 +40,7 @@
           };
         };
 
-        harpoon = {
-          enable = true;
-          saveOnToggle = true;
-          keymaps = {
-            addFile = "<leader>a";
-            toggleQuickMenu = "<C-e>";
-            navFile = {
-              "1" = "<C-h>";
-              "2" = "<C-j>";
-              "3" = "<C-k>";
-              "4" = "<C-l>";
-            };
-          };
-        };
+        harpoon = { enable = true; };
 
         conform-nvim = {
           enable = true;
@@ -135,6 +122,8 @@
             java-language-server.enable = true;
             tsserver.enable = true;
             ltex.enable = true;
+            matlab_ls.enable = true;
+            omnisharp.enable = true;
           };
         };
 
@@ -255,6 +244,38 @@
           key = "<leader>md";
           action = "<cmd>set cole=0<CR>";
         }
+        {
+          mode = "n";
+          key = "<leader>a";
+          action.__raw = "function() require'harpoon':list():add() end";
+        }
+        {
+          mode = "n";
+          key = "<C-e>";
+          action.__raw =
+            "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end";
+        }
+        {
+          mode = "n";
+          key = "<C-h>";
+          action.__raw = "function() require'harpoon':list():select(1) end";
+        }
+        {
+          mode = "n";
+          key = "<C-j>";
+          action.__raw = "function() require'harpoon':list():select(2) end";
+        }
+        {
+          mode = "n";
+          key = "<C-k>";
+          action.__raw = "function() require'harpoon':list():select(3) end";
+        }
+        {
+          mode = "n";
+          key = "<C-l>";
+          action.__raw = "function() require'harpoon':list():select(4) end";
+        }
+
       ];
 
     };
