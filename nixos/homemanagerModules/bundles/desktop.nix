@@ -18,7 +18,7 @@
       xsel
       feh
       pavucontrol
-      wine
+      wineWowPackages.stable
       zathura
     ];
   };
