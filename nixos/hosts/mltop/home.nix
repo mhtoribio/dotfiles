@@ -10,7 +10,7 @@
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 
-    bundles.desktop.enable = true;
+    bundles.xdesktop.enable = true;
 
     # colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
   };

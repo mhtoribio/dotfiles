@@ -1,8 +1,8 @@
 { pkgs, lib, config, inputs, ... }: {
   options = {
-    bundles.desktop.enable = lib.mkEnableOption "enable desktop bundle";
+    bundles.xdesktop.enable = lib.mkEnableOption "enable X desktop bundle";
   };
-  config = lib.mkIf config.bundles.desktop.enable {
+  config = lib.mkIf config.bundles.xdesktop.enable {
 
     rofi.enable = lib.mkDefault true;
     i3.enable = lib.mkDefault true;

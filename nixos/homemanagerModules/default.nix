@@ -14,7 +14,7 @@
     ./features/obsidian.nix
     #./features/zathura.nix
     ./bundles/general.nix
-    ./bundles/desktop.nix
+    ./bundles/xdesktop.nix
   ];
 
   options = {
@@ -24,7 +24,7 @@
   config = {
     #zathura.enable = lib.mkDefault true;
     bundles.general.enable = lib.mkDefault true;
-    bundles.desktop.enable = lib.mkDefault false;
+    bundles.xdesktop.enable = lib.mkDefault false;
 
     nixpkgs = { config = { allowUnfree = true; }; };
   };
