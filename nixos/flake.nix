@@ -41,6 +41,7 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = import ./overlays.nix { inherit inputs; };
+        config.allowUnfree = true;
       };
     in {
       nixosConfigurations = {
@@ -52,7 +53,11 @@
         wsl = nixpkgs.lib.nixosSystem {
           inherit pkgs;
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/wsl/configuration.nix ./nixosModules nixos-wsl.nixosModules.wsl ];
+          modules = [
+            ./hosts/wsl/configuration.nix
+            ./nixosModules
+            nixos-wsl.nixosModules.wsl
+          ];
         };
       };
       homeConfigurations = {

@@ -29,10 +29,10 @@
           let modifier = config.xsession.windowManager.i3.config.modifier;
           in lib.mkOptionDefault {
             "${modifier}+Mod1+l" = "exec --no-startup-id i3lock";
-            "${modifier}+d" = ''
-              exec "${pkgs.rofi}/bin/rofi -modi drun,run -show drun -theme Arc-Dark -font 'hack 20'"'';
-            "${modifier}+Shift+d" = ''
-              exec "${pkgs.rofi}/bin/rofi -modi run,run -show run -theme Arc-Dark -font 'hack 20'"'';
+            # "${modifier}+d" = ''
+            #   exec "${pkgs.rofi}/bin/rofi -modi drun,run -show drun -theme Arc-Dark -font 'hack 20'"'';
+            # "${modifier}+Shift+d" = ''
+            #   exec "${pkgs.rofi}/bin/rofi -modi run,run -show run -theme Arc-Dark -font 'hack 20'"'';
             "${modifier}+w" = "exec ${pkgs.firefox}/bin/firefox";
             "${modifier}+z" =
               "exec --no-startup-id ~/.dotfiles/scripts/toggle-keymap";

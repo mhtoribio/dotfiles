@@ -40,16 +40,32 @@
     LC_TIME = "da_DK.UTF-8";
   };
 
-  services.xserver = {
+  # Display manager
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  # (GDM uses Wayland by default)
+
+  # Hyprland system module provides the session entry for GDM
+  programs.hyprland = {
     enable = true;
-    windowManager.i3.enable = true;
-    displayManager.gdm.enable = true;
-    xkb.layout = "us";
-    resolutions = [{
-      x = 1920;
-      y = 1080;
-    }];
+    withUWSM = true; # optional but nice; safe to keep on
+    xwayland.enable = true;
   };
+
+  # Portals (screenshare, file dialogs)
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+
+  # services.xserver = {
+  #   enable = true;
+  #   windowManager.i3.enable = true;
+  #   displayManager.gdm.enable = true;
+  #   xkb.layout = "us";
+  #   resolutions = [{
+  #     x = 1920;
+  #     y = 1080;
+  #   }];
+  # };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;

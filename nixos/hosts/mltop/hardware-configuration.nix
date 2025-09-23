@@ -37,4 +37,17 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = true; # required for Wayland/GBM
+    open = false; # Maxwell (940MX) is NOT supported by the open driver
+    powerManagement.enable = true; # optional
+    nvidiaSettings = true; # optional
+  };
+
+  # Good defaults for modern NixOS
+  hardware.graphics.enable = true;
+  boot.kernelParams = [ "nvidia_drm.modeset=1" ];
 }

@@ -60,9 +60,6 @@
         py3 = "python3";
         ipy = "ipython";
         ipy3 = "ipython3";
-        # HDMI display mirroring
-        fix-display =
-          "xrandr --output HDMI-1 --auto --same-as eDP-1 --scale-from 2560x1440";
       };
 
     };
