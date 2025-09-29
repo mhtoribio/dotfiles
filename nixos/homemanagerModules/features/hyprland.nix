@@ -2,6 +2,25 @@
   options = { hyprland.enable = lib.mkEnableOption "enable hyprland"; };
   config = lib.mkIf config.hyprland.enable {
 
+    home.pointerCursor = {
+      package = pkgs.adwaita-icon-theme; # provides the Adwaita cursors
+      name = "Adwaita";
+      size = 18; # pick any size you like
+      gtk.enable = true; # GTK apps follow it
+      x11.enable = true; # Xwayland too
+    };
+
+    wayland.windowManager.hyprland.settings.env = [
+      "XCURSOR_THEME,Adwaita"
+      "XCURSOR_SIZE,18"
+      "HYPRCURSOR_THEME,Adwaita"
+      "HYPRCURSOR_SIZE,18"
+    ];
+
+    wayland.windowManager.hyprland.settings.input = {
+      kb_layout = "us,dk"; # order matters: 0=us, 1=dk
+    };
+
     # --- Hyprland compositor (HM) ---
     wayland.windowManager.hyprland = {
       enable = true;
@@ -26,6 +45,9 @@
 
         "$mod" = "SUPER";
         bind = [
+          # Keymap
+          "$mod, Backspace, exec, ${pkgs.hyprland}/bin/hyprctl switchxkblayout all next"
+
           # # Cursed monitor hack - fix this with kanshi or shikane when they solve the issues https://github.com/hyprwm/Hyprland/issues/1274
           # ''
           #   $mod CTRL, F10, exec, ${pkgs.hyprland}/bin/hyprctl keyword monitor "HDMI-A-1,preferred,0x0,1"; ${pkgs.hyprland}/bin/hyprctl dispatch dpms off eDP-1''
