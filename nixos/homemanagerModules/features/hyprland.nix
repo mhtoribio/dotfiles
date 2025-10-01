@@ -64,6 +64,8 @@
           "$mod SHIFT, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show run"
           ''
             $mod SHIFT, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" ~/Pictures/Shot-$(date +%F_%T).png''
+          ''
+            $mod CTRL, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png''
           "$mod ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
           "$mod SHIFT, Q, killactive"
           "$mod, F,      fullscreen"
