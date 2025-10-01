@@ -17,6 +17,7 @@
       pavucontrol
       wineWowPackages.stable
       zathura
+      vivaldi
     ];
   };
 }
