@@ -41,9 +41,8 @@
   };
 
   # Display manager
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  # (GDM uses Wayland by default)
+  services.xserver.enable = false;
+  services.xserver.displayManager.gdm.enable = false;
 
   # Hyprland system module provides the session entry for GDM
   programs.hyprland = {
@@ -52,20 +51,28 @@
     xwayland.enable = true;
   };
 
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        # Text greeter; launches Hyprland after login
+        command =
+          "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'uwsm start hyprland'";
+        user = "greeter";
+      };
+    };
+  };
+
   # Portals (screenshare, file dialogs)
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  xdg.portal.config = { common = { default = [ "hyprland" ]; }; };
 
-  # services.xserver = {
-  #   enable = true;
-  #   windowManager.i3.enable = true;
-  #   displayManager.gdm.enable = true;
-  #   xkb.layout = "us";
-  #   resolutions = [{
-  #     x = 1920;
-  #     y = 1080;
-  #   }];
-  # };
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -75,6 +82,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -131,6 +139,11 @@
     usbutils
     pciutils
     quartus-prime-old.quartus-prime-lite
+    gnome-network-displays
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-libav
   ];
 
   documentation.enable = true;
