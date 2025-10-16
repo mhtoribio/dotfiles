@@ -45,7 +45,17 @@
     open = false; # Maxwell (940MX) is NOT supported by the open driver
     powerManagement.enable = true; # optional
     nvidiaSettings = true; # optional
+
+    # PRIME render offload (Intel drives display; NVIDIA used on-demand)
+    prime = {
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
+      # Find these with: `lspci | grep -E 'VGA|3D'`
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:2:0:0";
+    };
   };
+  environment.systemPackages = with pkgs; [ cudaPackages.cudatoolkit ];
 
   # Good defaults for modern NixOS
   hardware.graphics.enable = true;
