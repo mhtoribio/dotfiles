@@ -18,6 +18,8 @@
       wineWowPackages.stable
       zathura
       vivaldi
+      sox
+      mplayer
     ];
   };
 }
