@@ -45,8 +45,10 @@
     programs.git = {
       enable = true;
       #config.init.defaultbranch = "master"; does not exist for some reason
-      userName = config.gitName;
-      userEmail = config.gitEmail;
+	  settings = {
+        user.name = config.gitName;
+        user.email = config.gitEmail;
+	  };
     };
   };
 }

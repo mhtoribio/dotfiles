@@ -1,5 +1,5 @@
 { inputs, lib, config, pkgs, ... }: {
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+  imports = [ inputs.nixvim.homeModules.nixvim ];
   options = { nixvim.enable = lib.mkEnableOption "enable nixvim"; };
   config = lib.mkIf config.nixvim.enable {
 
@@ -41,6 +41,7 @@
             "<C-p>" = { action = "git_files"; };
           };
         };
+		web-devicons.enable = true; # Needs to be enabled when telescope is enabled
 
         harpoon = { enable = true; };
 
@@ -72,7 +73,7 @@
         clipboard-image = {
           enable = true;
           clipboardPackage = pkgs.xclip;
-          default = { imgDir = "images"; };
+          default = { img_dir = "images"; };
         };
 
         comment = {
@@ -117,14 +118,14 @@
             zls.enable = true;
             bashls.enable = true;
             pyright.enable = true;
-            rust-analyzer = {
+            rust_analyzer = {
               enable = true;
               installCargo = true;
               installRustc = true;
             };
             gopls.enable = true;
-            java-language-server.enable = true;
-            tsserver.enable = true;
+            java_language_server.enable = true;
+            ts_ls.enable = true;
             ltex.enable = true;
             matlab_ls.enable = true;
             omnisharp.enable = true;
@@ -289,7 +290,7 @@
       astyle
       astyle
       stylua
-      nixfmt-classic
+      nixfmt
       rustfmt
       shfmt
       go

@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }: {
   config = {
     # imports = [
-    #     inputs.self.outputs.homeManagerModules.default
+    #     inputs.self.outputs.homeModules.default
     # ];
     home.username = "markus";
     home.homeDirectory = "/home/markus";

@@ -4,7 +4,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # inputs.home-manager.nixosModules.home-manager
-    # inputs.self.outputs.homeManagerModules.default
+    # inputs.self.outputs.homeModules.default
   ];
 
   # Bootloader.
@@ -57,7 +57,7 @@
       default_session = {
         # Text greeter; launches Hyprland after login
         command =
-          "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'uwsm start hyprland'";
+          "${pkgs.tuigreet}/bin/tuigreet --cmd 'uwsm start hyprland'";
         user = "greeter";
       };
     };
@@ -75,7 +75,7 @@
   };
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

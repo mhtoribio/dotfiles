@@ -65,15 +65,15 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules =
-            [ ./hosts/mltop/home.nix self.outputs.homeManagerModules.default ];
+            [ ./hosts/mltop/home.nix self.outputs.homeModules.default ];
         };
         wsl = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules =
-            [ ./hosts/wsl/home.nix self.outputs.homeManagerModules.default ];
+            [ ./hosts/wsl/home.nix self.outputs.homeModules.default ];
         };
       };
-      homeManagerModules.default = ./homemanagerModules;
+      homeModules.default = ./homemanagerModules;
     };
 }

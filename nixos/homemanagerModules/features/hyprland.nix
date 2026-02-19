@@ -60,8 +60,8 @@
 
           # apps
           "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
-          "$mod, D,      exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
-          "$mod SHIFT, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show run"
+          "$mod, D,      exec, ${pkgs.rofi}/bin/rofi -show drun"
+          "$mod SHIFT, D, exec, ${pkgs.rofi}/bin/rofi -show run"
           ''
             $mod SHIFT, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" ~/Pictures/Shot-$(date +%F_%T).png''
           ''
@@ -625,7 +625,7 @@
     fonts.fontconfig.enable = true;
     home.packages = with pkgs; [
       alacritty
-      rofi-wayland
+      rofi
       wl-clipboard
       hyprlock
       grim
@@ -638,7 +638,7 @@
       pkgs.nerd-fonts.jetbrains-mono # was (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       pkgs.nerd-fonts.symbols-only # replaces "NerdFontsSymbolsOnly"
       font-awesome
-      noto-fonts-emoji # (optional) nicer emoji coverage
+      noto-fonts-color-emoji # (optional) nicer emoji coverage
       # noto-fonts                       # (optional) general text fallback
     ];
 
