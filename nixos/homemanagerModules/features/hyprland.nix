@@ -615,9 +615,12 @@
       settings = {
         ipc = "on";
         splash = false;
-        splash_offset = 2.0;
-        preload = [ "~/.wallpaper.jpg" ];
-        wallpaper = [ "HDMI-A-1,~/.wallpaper.jpg" "eDP-1,~/.wallpaper.jpg" ];
+        splash_offset = 2;
+		wallpaper = [
+		{ monitor = "HDMI-A-1"; path = "~/.wallpaper.jpg"; fit_mode = "cover"; }
+		{ monitor = "eDP-1";    path = "~/.wallpaper.jpg"; fit_mode = "cover"; }
+		{ monitor = "";    path = "~/.wallpaper.jpg"; fit_mode = "cover"; } # fallback wallpaper
+		];
       };
     };
 
