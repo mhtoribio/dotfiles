@@ -23,9 +23,11 @@
       };
 
       colorschemes.catppuccin = {
-        enable = true;
+        enable = false;
         settings.flavour = "mocha";
       };
+
+      colorschemes.gruvbox.enable = true;
 
       plugins = {
 
@@ -111,6 +113,8 @@
           servers = {
             nil_ls.enable = true;
             clangd.enable = true;
+            cmake.enable = true;
+            zls.enable = true;
             bashls.enable = true;
             pyright.enable = true;
             rust-analyzer = {
