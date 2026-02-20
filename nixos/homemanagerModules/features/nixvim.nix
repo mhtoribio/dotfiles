@@ -129,6 +129,7 @@
             ltex.enable = true;
             matlab_ls.enable = true;
             omnisharp.enable = true;
+			just.enable = true;
           };
         };
 

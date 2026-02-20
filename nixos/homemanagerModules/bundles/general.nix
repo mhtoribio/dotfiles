@@ -40,6 +40,7 @@
       bat
       jq
       devenv
+	  just
     ];
 
     programs.git = {
