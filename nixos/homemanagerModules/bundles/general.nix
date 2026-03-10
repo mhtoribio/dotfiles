@@ -27,7 +27,6 @@
       htop
       killall
       lf
-      neofetch
       nh
       nil
       ripgrep
