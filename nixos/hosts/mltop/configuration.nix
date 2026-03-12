@@ -108,11 +108,13 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.markus = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" "dialout" "plugdev" ];
     shell = pkgs.bash;
     # packages = with pkgs; [
     # ];
   };
+  users.groups.plugdev = {}; # define the plugdev group to make sure it is created
+  services.udev.packages = [ pkgs.openocd ]; # adds udev rules which allows users in plugdev group to access USB devices in certain cases
 
   boot.supportedFilesystems = [ "ntfs" ];
 
