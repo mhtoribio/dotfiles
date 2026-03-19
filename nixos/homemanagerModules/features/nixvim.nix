@@ -1,13 +1,24 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [ inputs.nixvim.homeModules.nixvim ];
-  options = { nixvim.enable = lib.mkEnableOption "enable nixvim"; };
+  options = {
+    nixvim.enable = lib.mkEnableOption "enable nixvim";
+  };
   config = lib.mkIf config.nixvim.enable {
 
     programs.nixvim = {
 
       enable = true;
       vimAlias = true;
-      globals = { mapleader = " "; };
+      globals = {
+        mapleader = " ";
+      };
 
       opts = {
         relativenumber = true;
@@ -34,31 +45,46 @@
         telescope = {
           enable = true;
           keymaps = {
-            "<leader>pf" = { action = "find_files"; };
-            "<leader>ps" = { action = "grep_string"; };
-            "<leader>pl" = { action = "live_grep"; };
-            "<leader>pk" = { action = "keymaps"; };
-            "<C-p>" = { action = "git_files"; };
+            "<leader>pf" = {
+              action = "find_files";
+            };
+            "<leader>ps" = {
+              action = "grep_string";
+            };
+            "<leader>pl" = {
+              action = "live_grep";
+            };
+            "<leader>pk" = {
+              action = "keymaps";
+            };
+            "<C-p>" = {
+              action = "git_files";
+            };
           };
         };
-		web-devicons.enable = true; # Needs to be enabled when telescope is enabled
+        web-devicons.enable = true; # Needs to be enabled when telescope is enabled
 
-        harpoon = { enable = true; };
+        harpoon = {
+          enable = true;
+        };
 
         conform-nvim = {
           enable = true;
-          formattersByFt = {
-            c = [ "astyle" ];
-            cpp = [ "astyle" ];
-            lua = [ "stylua" ];
-            nix = [ "nixfmt" ];
-            go = [ "gofmt" ];
-            rust = [ "rustfmt" ];
-            sh = [ "shfmt" ];
-          };
-          settings.format_on_save = {
-            lspFallback = true;
-            timeoutMs = 2000;
+          settings = {
+            formatters_by_ft = {
+              c = [ "astyle" ];
+              cpp = [ "astyle" ];
+              lua = [ "stylua" ];
+              nix = [ "nixfmt" ];
+              go = [ "gofmt" ];
+              rust = [ "rustfmt" ];
+              sh = [ "shfmt" ];
+            };
+
+            format_on_save = {
+              lsp_format = "fallback";
+              timeout_ms = 2000;
+            };
           };
         };
 
@@ -73,7 +99,9 @@
         clipboard-image = {
           enable = true;
           clipboardPackage = pkgs.xclip;
-          default = { img_dir = "images"; };
+          default = {
+            img_dir = "images";
+          };
         };
 
         comment = {
@@ -129,7 +157,7 @@
             ltex.enable = true;
             matlab_ls.enable = true;
             omnisharp.enable = true;
-			just.enable = true;
+            just.enable = true;
           };
         };
 
@@ -159,11 +187,6 @@
           mode = "n";
           key = "-";
           action = "<cmd>Oil<CR>";
-        }
-        {
-          mode = "n";
-          key = "<leader>gs";
-          action = "<cmd>Git<CR>";
         }
         {
           mode = "v";
@@ -221,22 +244,6 @@
         }
         {
           mode = "n";
-          key = "<leader>s";
-          action = ":%s/<<C-r><C-w>>/<C-r><C-w>/gI<Left><Left><Left>";
-        }
-        {
-          mode = "n";
-          key = "<leader>x";
-          action = "<cmd>!chmod +x %<CR>";
-          options.silent = true;
-        }
-        {
-          mode = "n";
-          key = "<leader><leader><CR>";
-          action = "<cmd>.!sh<CR>";
-        }
-        {
-          mode = "n";
           key = "]g";
           action = "<cmd>cnext<CR>";
         }
@@ -247,19 +254,13 @@
         }
         {
           mode = "n";
-          key = "<leader>md";
-          action = "<cmd>set cole=0<CR>";
-        }
-        {
-          mode = "n";
           key = "<leader>a";
           action.__raw = "function() require'harpoon':list():add() end";
         }
         {
           mode = "n";
           key = "<C-e>";
-          action.__raw =
-            "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end";
+          action.__raw = "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end";
         }
         {
           mode = "n";

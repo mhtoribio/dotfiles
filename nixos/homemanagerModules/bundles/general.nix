@@ -36,6 +36,7 @@
       wget
       zip
       python3
+      python3Packages.numpy
       bat
       jq
       devenv
