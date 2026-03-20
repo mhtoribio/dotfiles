@@ -1,0 +1,10 @@
+list:
+    just --list
+
+# home-manager
+home action="switch":
+    home-manager {{ action }} --flake {{ justfile_directory() }}
+
+# sudo nixos-rebuild
+rebuild action="switch":
+    sudo nixos-rebuild {{ action }} --flake {{ justfile_directory() }}

@@ -1,5 +1,13 @@
-{ config, lib, pkgs, ... }: {
-  options = { hyprland.enable = lib.mkEnableOption "enable hyprland"; };
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  options = {
+    hyprland.enable = lib.mkEnableOption "enable hyprland";
+  };
   config = lib.mkIf config.hyprland.enable {
 
     home.pointerCursor = {
@@ -41,7 +49,9 @@
           inactive_opacity = 1.0;
         };
 
-        animations = { enabled = false; };
+        animations = {
+          enabled = false;
+        };
 
         "$mod" = "SUPER";
         bind = [
@@ -58,14 +68,21 @@
           # Mobile: re-enable laptop panel, (optionally) kill HDMI
           "$mod CTRL, F11, exec, ${pkgs.hyprland}/bin/hyprctl keyword monitor 'eDP-1,preferred,0x0,1'; ${pkgs.hyprland}/bin/hyprctl dispatch dpms on eDP-1; ${pkgs.hyprland}/bin/hyprctl keyword monitor 'HDMI-A-1,disable'; for i in $(seq 1 9); do ${pkgs.hyprland}/bin/hyprctl dispatch moveworkspacetomonitor $i eDP-1; done"
 
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+          ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%-"
+          ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
+          "SHIFT, XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%"
+          "SHIFT, XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 100%"
+
           # apps
           "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
           "$mod, D,      exec, ${pkgs.rofi}/bin/rofi -show drun"
           "$mod SHIFT, D, exec, ${pkgs.rofi}/bin/rofi -show run"
-          ''
-            $mod SHIFT, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" ~/Pictures/Shot-$(date +%F_%T).png''
-          ''
-            $mod CTRL, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png''
+          ''$mod SHIFT, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" ~/Pictures/Shot-$(date +%F_%T).png''
+          ''$mod CTRL, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png''
           "$mod ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
           "$mod SHIFT, Q, killactive"
           "$mod, F,      fullscreen"
@@ -135,7 +152,10 @@
           spacing = 4;
 
           # LEFT / CENTER / RIGHT
-          modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+          modules-left = [
+            "hyprland/workspaces"
+            "hyprland/window"
+          ];
           modules-center = [ ];
           modules-right = [
             "idle_inhibitor"
@@ -161,7 +181,9 @@
             # persistent-workspaces = { "*" = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" ]; };
           };
 
-          "hyprland/window" = { max-length = 80; };
+          "hyprland/window" = {
+            max-length = 80;
+          };
 
           "hyprland/language" = {
             format = "{short}"; # "us"/"dk"
@@ -182,7 +204,13 @@
             format-muted = " {format_source}";
             format-source = "{volume}% ";
             format-source-muted = "";
-            format-icons = { default = [ "" "" "" ]; };
+            format-icons = {
+              default = [
+                ""
+                ""
+                ""
+              ];
+            };
             on-click = "pavucontrol";
           };
 
@@ -213,18 +241,34 @@
             format = "{usage}% ";
             tooltip = true;
           };
-          "memory" = { format = "{}% "; };
+          "memory" = {
+            format = "{}% ";
+          };
 
           "temperature" = {
             critical-threshold = 80;
             format = "{temperatureC}°C {icon}";
-            format-icons = [ "" "" "" ];
+            format-icons = [
+              ""
+              ""
+              ""
+            ];
           };
 
           "backlight" = {
             # auto-detects device; set "device" if needed
             format = "{percent}% {icon}";
-            format-icons = [ "" "" "" "" "" "" "" "" "" ];
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
 
           "battery" = {
@@ -237,17 +281,24 @@
             format-charging = "{capacity}% ";
             format-plugged = "{capacity}% ";
             format-alt = "{time} {icon}";
-            format-icons = [ "" "" "" "" "" ];
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
 
           "clock" = {
-            tooltip-format =
-              "<big>{:%Y %B}</big><tt><small>{calendar}</small></tt>";
+            tooltip-format = "<big>{:%Y %B}</big><tt><small>{calendar}</small></tt>";
             format-alt = "{:%Y-%m-%d}";
 
           };
 
-          "tray" = { spacing = 10; };
+          "tray" = {
+            spacing = 10;
+          };
         };
       };
 
@@ -616,11 +667,23 @@
         ipc = "on";
         splash = false;
         splash_offset = 2;
-		wallpaper = [
-		{ monitor = "HDMI-A-1"; path = "~/.wallpaper.jpg"; fit_mode = "cover"; }
-		{ monitor = "eDP-1";    path = "~/.wallpaper.jpg"; fit_mode = "cover"; }
-		{ monitor = "";    path = "~/.wallpaper.jpg"; fit_mode = "cover"; } # fallback wallpaper
-		];
+        wallpaper = [
+          {
+            monitor = "HDMI-A-1";
+            path = "~/.wallpaper.jpg";
+            fit_mode = "cover";
+          }
+          {
+            monitor = "eDP-1";
+            path = "~/.wallpaper.jpg";
+            fit_mode = "cover";
+          }
+          {
+            monitor = "";
+            path = "~/.wallpaper.jpg";
+            fit_mode = "cover";
+          } # fallback wallpaper
+        ];
       };
     };
 
@@ -637,6 +700,7 @@
       intel-gpu-tools # for Intel iGPU fallback (intel_gpu_top)
       lm_sensors # temperature backing, nice to have
       pavucontrol # clicked by pulseaudio module
+      brightnessctl
 
       pkgs.nerd-fonts.jetbrains-mono # was (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       pkgs.nerd-fonts.symbols-only # replaces "NerdFontsSymbolsOnly"
