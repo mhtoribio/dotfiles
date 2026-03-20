@@ -1,10 +1,16 @@
-{ lib, config, pkgs, ... }: {
-  options = { bash.enable = lib.mkEnableOption "enable bash"; };
+{
+  lib,
+  config,
+  ...
+}:
+{
+  options = {
+    bash.enable = lib.mkEnableOption "enable bash";
+  };
   config = lib.mkIf config.bash.enable {
     programs.bash = {
       enable = true;
       bashrcExtra = ''
-        export PATH=$PATH:$HOME/.local/bin:$HOME/.dotfiles/scripts
         # Navigate with lf
         lfcd () {
             tmp="$(mktemp -uq)"
@@ -31,35 +37,9 @@
         ls = "ls --color=tty";
         lsa = "ls -la";
         ll = "ls -l";
-        # git shortcuts
-        ga = "git add";
-        gaa = "git add --all";
-        gb = "git branch";
-        gc = "git commit -v";
-        gco = "git checkout";
-        gd = "git diff";
-        gf = "git fetch";
-        gl = "git pull";
-        glg = "git log --stat";
-        gm = "git merge";
-        gp = "git push";
-        gr = "git remote";
-        grb = "git rebase";
-        grs = "git restore";
-        gsh = "git show";
-        gst = "git status";
         # use these all the time
         t = "tmux";
         v = "vim";
-        # xclip
-        cs = "xclip -sel clip";
-        # setxkbmap
-        kmap = "setxkbmap";
-        # python interactive shell
-        py = "python";
-        py3 = "python3";
-        ipy = "ipython";
-        ipy3 = "ipython3";
       };
 
     };
