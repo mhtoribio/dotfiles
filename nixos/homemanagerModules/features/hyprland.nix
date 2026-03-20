@@ -68,6 +68,7 @@
           # Mobile: re-enable laptop panel, (optionally) kill HDMI
           "$mod CTRL, F11, exec, ${pkgs.hyprland}/bin/hyprctl keyword monitor 'eDP-1,preferred,0x0,1'; ${pkgs.hyprland}/bin/hyprctl dispatch dpms on eDP-1; ${pkgs.hyprland}/bin/hyprctl keyword monitor 'HDMI-A-1,disable'; for i in $(seq 1 9); do ${pkgs.hyprland}/bin/hyprctl dispatch moveworkspacetomonitor $i eDP-1; done"
 
+          # Make weird keys work
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
           ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
