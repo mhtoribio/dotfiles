@@ -1,10 +1,16 @@
-{ pkgs, lib, config, inputs, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
+{
   options = {
     bundles.general.enable = lib.mkEnableOption "enable general bundle";
 
     gitName = lib.mkOption { default = "mhtoribio"; };
-    gitEmail =
-      lib.mkOption { default = "23717111+mhtoribio@users.noreply.github.com"; };
+    gitEmail = lib.mkOption { default = "23717111+mhtoribio@users.noreply.github.com"; };
   };
   config = lib.mkIf config.bundles.general.enable {
 
@@ -35,21 +41,24 @@
       unzip
       wget
       zip
-      python3
-      python3Packages.numpy
+      (python3.withPackages (
+        ps: with ps; [
+          numpy
+        ]
+      ))
       bat
       jq
       devenv
-	  just
+      just
     ];
 
     programs.git = {
       enable = true;
       #config.init.defaultbranch = "master"; does not exist for some reason
-	  settings = {
+      settings = {
         user.name = config.gitName;
         user.email = config.gitEmail;
-	  };
+      };
     };
   };
 }

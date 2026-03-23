@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   config = {
     # imports = [
     #     inputs.self.outputs.homeModules.default
@@ -10,7 +16,8 @@
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 
-    bundles.xdesktop.enable = true;
+    bundles.xdesktop.enable = false;
+    bundles.general.enable = true;
 
     # colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
   };
