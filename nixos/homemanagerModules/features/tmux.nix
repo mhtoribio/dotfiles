@@ -19,6 +19,10 @@
       escapeTime = 0;
       mouse = true;
       historyLimit = 50000;
+      extraConfig = ''
+                	  set -g status-left "[#S] | "
+        			  set -g status-left-length 30
+                	  '';
     };
   };
 }
