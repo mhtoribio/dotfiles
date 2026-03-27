@@ -1,11 +1,24 @@
-{ lib, config, pkgs, ... }: {
-  options = { tmux.enable = lib.mkEnableOption "enable tmux"; };
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
+  options = {
+    tmux.enable = lib.mkEnableOption "enable tmux";
+  };
   config = lib.mkIf config.tmux.enable {
     programs.tmux = {
       enable = true;
-      plugins = [ pkgs.tmuxPlugins.tmux-fzf pkgs.tmuxPlugins.gruvbox ];
+
+      prefix = "M-e";
+      keyMode = "vi";
+      baseIndex = 1;
+      terminal = "tmux-256color";
+      escapeTime = 0;
+      mouse = true;
+      historyLimit = 50000;
     };
-    home.file.".config/tmux/".source =
-      "${config.stow-base-folder}/tmux/.config/tmux/";
   };
 }
