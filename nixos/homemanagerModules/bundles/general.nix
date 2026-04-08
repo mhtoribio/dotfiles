@@ -44,6 +44,7 @@
       (python3.withPackages (
         ps: with ps; [
           numpy
+          icecream
         ]
       ))
       bat
