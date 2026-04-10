@@ -4,6 +4,64 @@
   pkgs,
   ...
 }:
+let
+  kanshiPostSwitch = pkgs.writeShellScriptBin "kanshi-post-switch" ''
+    set -eu
+
+    ${pkgs.coreutils}/bin/sleep 0.2
+    ${pkgs.systemd}/bin/systemctl --user restart hyprpaper.service
+    ${pkgs.systemd}/bin/systemctl --user restart waybar.service
+  '';
+
+  kanshiSelectProfile = pkgs.writeShellScriptBin "kanshi-select-profile" ''
+    set -eu
+
+    is_external_connected() {
+      ${pkgs.hyprland}/bin/hyprctl monitors all -j | ${pkgs.jq}/bin/jq -e '.[] | select(.name == "HDMI-A-1")' >/dev/null
+    }
+
+    stop_mirror() {
+      ${pkgs.procps}/bin/pkill -x wl-mirror >/dev/null 2>&1 || true
+    }
+
+    require_external() {
+      if ! is_external_connected; then
+        ${pkgs.rofi}/bin/rofi -e "HDMI-A-1 is not connected"
+        exit 1
+      fi
+    }
+
+    profile="$(
+      printf '%s\n' external extended mirror unmirror |
+        ${pkgs.rofi}/bin/rofi -dmenu -p "Displays"
+    )"
+
+    [ -n "$profile" ] || exit 0
+
+    case "$profile" in
+      external)
+        require_external
+        stop_mirror
+        exec ${pkgs.kanshi}/bin/kanshictl switch external
+        ;;
+      extended)
+        require_external
+        stop_mirror
+        exec ${pkgs.kanshi}/bin/kanshictl switch extended
+        ;;
+      mirror)
+        require_external
+        stop_mirror
+        ${pkgs.kanshi}/bin/kanshictl switch extended
+        ${pkgs.coreutils}/bin/sleep 0.2
+        nohup ${pkgs."wl-mirror"}/bin/wl-mirror --fullscreen-output HDMI-A-1 --fullscreen eDP-1 >/tmp/wl-mirror.log 2>&1 &
+        ;;
+      unmirror)
+        stop_mirror
+        ;;
+    esac
+  '';
+in
 {
   options = {
     hyprland.enable = lib.mkEnableOption "enable hyprland";
@@ -58,15 +116,8 @@
           # Keymap
           "$mod, Backspace, exec, ${pkgs.hyprland}/bin/hyprctl switchxkblayout all next"
 
-          # # Cursed monitor hack - fix this with kanshi or shikane when they solve the issues https://github.com/hyprwm/Hyprland/issues/1274
-          # ''
-          #   $mod CTRL, F10, exec, ${pkgs.hyprland}/bin/hyprctl keyword monitor "HDMI-A-1,preferred,0x0,1"; ${pkgs.hyprland}/bin/hyprctl dispatch dpms off eDP-1''
-          # ''
-          #   $mod CTRL, F11, exec, ${pkgs.hyprland}/bin/hyprctl dispatch dpms on eDP-1; ${pkgs.hyprland}/bin/hyprctl keyword monitor "eDP-1,preferred,0x0,1"''
-          # Dock: make HDMI primary, disable laptop panel
-          "$mod CTRL, F10, exec, ${pkgs.hyprland}/bin/hyprctl keyword monitor 'HDMI-A-1,preferred,0x0,1'; ${pkgs.hyprland}/bin/hyprctl keyword monitor 'eDP-1,disable'; for i in $(seq 1 9); do ${pkgs.hyprland}/bin/hyprctl dispatch moveworkspacetomonitor $i HDMI-A-1; done"
-          # Mobile: re-enable laptop panel, (optionally) kill HDMI
-          "$mod CTRL, F11, exec, ${pkgs.hyprland}/bin/hyprctl keyword monitor 'eDP-1,preferred,0x0,1'; ${pkgs.hyprland}/bin/hyprctl dispatch dpms on eDP-1; ${pkgs.hyprland}/bin/hyprctl keyword monitor 'HDMI-A-1,disable'; for i in $(seq 1 9); do ${pkgs.hyprland}/bin/hyprctl dispatch moveworkspacetomonitor $i eDP-1; done"
+          # Monitor selection
+          "$mod, P, exec, ${kanshiSelectProfile}/bin/kanshi-select-profile"
 
           # Make weird keys work
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
@@ -635,34 +686,75 @@
 
     services.mako.enable = true; # notifications
 
-    # Automatic monitor switching
-    # services.shikane = {
-    #   enable = true;
-    #   settings = {
-    #     profile = [
-    #       {
-    #         name = "mobile";
-    #         output = [{
-    #           match = "eDP-1";
-    #           enable = true;
-    #         }];
-    #       }
-    #       {
-    #         name = "docked";
-    #         output = [
-    #           {
-    #             match = "eDP-1";
-    #             enable = false;
-    #           }
-    #           {
-    #             match = "HDMI-A-1";
-    #             enable = true;
-    #           }
-    #         ];
-    #       }
-    #     ];
-    #   };
-    # };
+    # Output profile management. Mirror is left to the legacy binds because kanshi's
+    # profile syntax only covers enable/disable/mode/position/scale/transform.
+    services.kanshi = {
+      enable = true;
+      settings = [
+        {
+          output = {
+            criteria = "eDP-1";
+            alias = "internal";
+            scale = 1.0;
+          };
+        }
+        {
+          output = {
+            criteria = "Hewlett Packard LA2405 CN412902FR";
+            alias = "external";
+            scale = 1.0;
+          };
+        }
+        {
+          profile = {
+            name = "laptop";
+            outputs = [
+              {
+                criteria = "$internal";
+                status = "enable";
+                position = "0,0";
+              }
+            ];
+            exec = [ "${kanshiPostSwitch}/bin/kanshi-post-switch" ];
+          };
+        }
+        {
+          profile = {
+            name = "external";
+            outputs = [
+              {
+                criteria = "$internal";
+                status = "disable";
+              }
+              {
+                criteria = "$external";
+                status = "enable";
+                position = "0,0";
+              }
+            ];
+            exec = [ "${kanshiPostSwitch}/bin/kanshi-post-switch" ];
+          };
+        }
+        {
+          profile = {
+            name = "extended";
+            outputs = [
+              {
+                criteria = "$internal";
+                status = "enable";
+                position = "0,0";
+              }
+              {
+                criteria = "$external";
+                status = "enable";
+                position = "2560,0";
+              }
+            ];
+            exec = [ "${kanshiPostSwitch}/bin/kanshi-post-switch" ];
+          };
+        }
+      ];
+    };
 
     services.hyprpaper = {
       enable = true;
@@ -693,6 +785,9 @@
     # Tools referenced in binds/startup (add/remove to taste)
     fonts.fontconfig.enable = true;
     home.packages = with pkgs; [
+      kanshiPostSwitch
+      kanshiSelectProfile
+      pkgs."wl-mirror"
       alacritty
       rofi
       wl-clipboard
