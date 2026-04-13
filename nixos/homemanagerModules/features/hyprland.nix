@@ -5,6 +5,10 @@
   ...
 }:
 let
+  internalNativeWidth = 2560;
+  internalScale = 1.6;
+  internalLogicalWidth = builtins.floor (internalNativeWidth / internalScale);
+
   kanshiPostSwitch = pkgs.writeShellScriptBin "kanshi-post-switch" ''
     set -eu
 
@@ -695,7 +699,7 @@ in
           output = {
             criteria = "eDP-1";
             alias = "internal";
-            scale = 1.0;
+            scale = internalScale;
           };
         }
         {
@@ -729,7 +733,7 @@ in
               {
                 criteria = "$external";
                 status = "enable";
-                position = "0,0";
+                position = "${toString internalLogicalWidth},0";
               }
             ];
             exec = [ "${kanshiPostSwitch}/bin/kanshi-post-switch" ];
@@ -747,7 +751,7 @@ in
               {
                 criteria = "$external";
                 status = "enable";
-                position = "2560,0";
+                position = "${toString internalLogicalWidth},0";
               }
             ];
             exec = [ "${kanshiPostSwitch}/bin/kanshi-post-switch" ];
