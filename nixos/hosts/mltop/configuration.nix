@@ -1,7 +1,14 @@
-{ config, pkgs, inputs, outputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  outputs,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # inputs.home-manager.nixosModules.home-manager
     # inputs.self.outputs.homeModules.default
@@ -15,7 +22,10 @@
   environment.etc.hosts.mode = "0644"; # allow editing /etc/hosts as root
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -56,8 +66,7 @@
     settings = {
       default_session = {
         # Text greeter; launches Hyprland after login
-        command =
-          "${pkgs.tuigreet}/bin/tuigreet --cmd 'uwsm start hyprland'";
+        command = "${pkgs.tuigreet}/bin/tuigreet --cmd 'uwsm start hyprland'";
         user = "greeter";
       };
     };
@@ -66,7 +75,11 @@
   # Portals (screenshare, file dialogs)
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-  xdg.portal.config = { common = { default = [ "hyprland" ]; }; };
+  xdg.portal.config = {
+    common = {
+      default = [ "hyprland" ];
+    };
+  };
 
   services.avahi = {
     enable = true;
@@ -96,24 +109,34 @@
 
   # Don't require password for sudo
   # I'm already logged in and its a personal machine, why would i need to enter password?
-  security.sudo.extraRules = [{
-    users = [ "markus" ];
-    commands = [{
-      command = "ALL";
-      options =
-        [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
-    }];
-  }];
+  security.sudo.extraRules = [
+    {
+      users = [ "markus" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.markus = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" "dialout" "plugdev" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "vboxusers"
+      "dialout"
+      "plugdev"
+    ];
     shell = pkgs.bash;
     # packages = with pkgs; [
     # ];
   };
-  users.groups.plugdev = {}; # define the plugdev group to make sure it is created
+  users.groups.plugdev = { }; # define the plugdev group to make sure it is created
   services.udev.packages = [ pkgs.openocd ]; # adds udev rules which allows users in plugdev group to access USB devices in certain cases
 
   boot.supportedFilesystems = [ "ntfs" ];
@@ -126,6 +149,9 @@
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 9000 8000 ];
   networking.firewall.enable = false;
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
     home-manager
@@ -164,7 +190,11 @@
     keyboards = {
       default = {
         ids = [ "*" ];
-        settings = { main = { capslock = "overload(meta, esc)"; }; };
+        settings = {
+          main = {
+            capslock = "overload(meta, esc)";
+          };
+        };
       };
     };
   };
