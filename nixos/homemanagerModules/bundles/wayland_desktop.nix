@@ -1,7 +1,13 @@
-{ pkgs, lib, config, inputs, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
+{
   options = {
-    bundles.wayland_desktop.enable =
-      lib.mkEnableOption "enable wayland desktop bundle";
+    bundles.wayland_desktop.enable = lib.mkEnableOption "enable wayland desktop bundle";
   };
   config = lib.mkIf config.bundles.wayland_desktop.enable {
 
@@ -20,6 +26,8 @@
       vivaldi
       sox
       mplayer
+      thunderbird
+      libreoffice
     ];
   };
 }
