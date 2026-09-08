@@ -33,7 +33,15 @@
     nixos-wsl.url = "github:nix-community/nixos-wsl";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-matlab, nixos-wsl, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nix-matlab,
+      nixos-wsl,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -43,12 +51,16 @@
         overlays = import ./overlays.nix { inherit inputs; };
         config.allowUnfree = true;
       };
-    in {
+    in
+    {
       nixosConfigurations = {
         mltop = nixpkgs.lib.nixosSystem {
           inherit pkgs;
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/mltop/configuration.nix ./nixosModules ];
+          modules = [
+            ./hosts/mltop/configuration.nix
+            ./nixosModules
+          ];
         };
         wsl = nixpkgs.lib.nixosSystem {
           inherit pkgs;
@@ -64,14 +76,26 @@
         markus = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
-          modules =
-            [ ./hosts/mltop/home.nix self.outputs.homeModules.default ];
+          modules = [
+            ./hosts/mltop/home.nix
+            self.outputs.homeModules.default
+          ];
         };
         wsl = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
-          modules =
-            [ ./hosts/wsl/home.nix self.outputs.homeModules.default ];
+          modules = [
+            ./hosts/wsl/home.nix
+            self.outputs.homeModules.default
+          ];
+        };
+        work = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/work/home.nix
+            self.outputs.homeModules.default
+          ];
         };
       };
       homeModules.default = ./homemanagerModules;
