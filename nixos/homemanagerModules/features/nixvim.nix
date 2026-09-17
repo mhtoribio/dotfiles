@@ -100,7 +100,7 @@
           enable = true;
           clipboardPackage = pkgs.xclip;
           default = {
-            img_dir = "images";
+            imgDir = "images";
           };
         };
 
