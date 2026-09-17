@@ -145,7 +145,6 @@ in
           "$mod SHIFT, Q, killactive"
           "$mod, F,      fullscreen"
           "$mod SHIFT, space, togglefloating"
-          "$mod, Space,  togglesplit"
 
           # focus (i3: $mod+h/j/k/l)
           "$mod, H, movefocus, l"
