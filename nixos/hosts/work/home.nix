@@ -20,5 +20,6 @@
 
     # Only want nixvim
     nixvim.enable = true;
+    tmux.enable = true;
   };
 }
