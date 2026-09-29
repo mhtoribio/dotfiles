@@ -27,6 +27,8 @@
         hlsearch = false;
         shiftwidth = 4;
         tabstop = 4;
+        expandtab = true;
+        smartindent = true;
         wrap = false;
         swapfile = false;
         termguicolors = true;
