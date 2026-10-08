@@ -13,6 +13,9 @@
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 
+    # Since this is not NixOS
+    targets.genericLinux.enable = true;
+
     # Disable everything
     bundles.general.enable = false;
     bundles.xdesktop.enable = false;
