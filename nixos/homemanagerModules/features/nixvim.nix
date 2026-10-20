@@ -46,6 +46,7 @@
 
         telescope = {
           enable = true;
+          extensions.undo.enable = true;
           keymaps = {
             "<leader>pf" = {
               action = "find_files";
