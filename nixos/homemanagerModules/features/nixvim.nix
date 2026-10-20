@@ -161,6 +161,9 @@
             matlab_ls.enable = true;
             omnisharp.enable = true;
             just.enable = true;
+            verible.enable = true;
+            vhdl_ls.enable = true;
+            tclsp.enable = true;
           };
         };
 
