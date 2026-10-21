@@ -16,13 +16,19 @@
     # Since this is not NixOS
     targets.genericLinux.enable = true;
 
-    # Disable everything
     bundles.general.enable = false;
     bundles.xdesktop.enable = false;
     bundles.wayland_desktop.enable = false;
 
-    # Only want nixvim
     nixvim.enable = true;
     tmux.enable = true;
+
+    fonts.fontconfig.enable = true;
+    home.packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
+      font-awesome
+      noto-fonts-color-emoji
+    ];
   };
 }
