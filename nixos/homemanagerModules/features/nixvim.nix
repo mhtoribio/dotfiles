@@ -83,11 +83,6 @@
               rust = [ "rustfmt" ];
               sh = [ "shfmt" ];
             };
-
-            format_on_save = {
-              lsp_format = "fallback";
-              timeout_ms = 2000;
-            };
           };
         };
 
@@ -287,6 +282,15 @@
           mode = "n";
           key = "<C-l>";
           action.__raw = "function() require'harpoon':list():select(4) end";
+        }
+        {
+          mode = [
+            "n"
+            "v"
+          ];
+          key = "<leader>cf";
+          action = "<cmd>lua require('conform').format({ async = true, lsp_format = 'fallback' })<CR>";
+          options.desc = "Format buffer or selection";
         }
 
       ];
