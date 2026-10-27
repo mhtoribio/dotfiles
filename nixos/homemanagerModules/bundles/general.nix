@@ -51,6 +51,7 @@
       jq
       devenv
       just
+      git-lfs
     ];
 
     programs.git = {
